@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SBR-Quiz – Schul- &amp; Beamtenrecht</title>
-<meta name="description" content="Quiz zur Prüfungsvorbereitung in Schul- und Beamtenrecht (Baden-Württemberg)">
+<meta name="description" content="Quiz, Karteikarten und Übersicht zur Prüfungsvorbereitung in Schul- und Beamtenrecht (Baden-Württemberg)">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -14,101 +14,657 @@
   <header class="app-header">
     <h1>⚖️ SBR-Quiz</h1>
     <p class="subtitle">Prüfungsvorbereitung Schul- &amp; Beamtenrecht (BW)</p>
+    <nav class="tab-bar">
+      <button type="button" class="tab-btn active" data-mode="quiz">📝 Quiz</button>
+      <button type="button" class="tab-btn" data-mode="flashcards">🗂️ Karteikarten</button>
+      <button type="button" class="tab-btn" data-mode="overview">📖 Übersicht</button>
+    </nav>
   </header>
 
   <main>
 
-    <!-- ============ START SCREEN ============ -->
-    <section id="screen-start" class="screen">
+    <!-- ================================================================ -->
+    <!-- MODE: QUIZ                                                       -->
+    <!-- ================================================================ -->
+    <div id="mode-quiz" class="mode-section">
+
+      <!-- ============ START SCREEN ============ -->
+      <section id="screen-start" class="screen">
+
+        <div class="card">
+          <h2>Kapitel auswählen</h2>
+          <div class="chapter-toolbar">
+            <button type="button" id="btn-select-all" class="btn btn-small">Alle auswählen</button>
+            <button type="button" id="btn-select-none" class="btn btn-small">Alle abwählen</button>
+          </div>
+
+          <div id="chapter-groups"></div>
+        </div>
+
+        <div class="card">
+          <h2>Anzahl Fragen</h2>
+          <div id="count-options" class="pill-group"></div>
+        </div>
+
+        <div class="card summary-card">
+          <p><strong id="available-count">0</strong> Fragen passend zur Auswahl verfügbar.</p>
+          <button type="button" id="btn-start" class="btn btn-primary btn-large">Quiz starten</button>
+          <button type="button" id="btn-weak" class="btn btn-secondary btn-large" disabled>
+            Schwache Fragen üben (aus Statistik)
+          </button>
+          <p id="weak-hint" class="hint">Beantworte erst ein paar Fragen, damit diese Funktion Daten hat.</p>
+        </div>
+
+        <div class="card stats-card">
+          <h2>Deine Statistik</h2>
+          <div id="stats-summary"></div>
+          <button type="button" id="btn-reset-stats" class="btn btn-danger btn-small">Statistik zurücksetzen</button>
+        </div>
+
+      </section>
+
+      <!-- ============ QUIZ SCREEN ============ -->
+      <section id="screen-quiz" class="screen hidden">
+        <div class="quiz-progress">
+          <div class="progress-track">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+          <div class="progress-text">
+            <span id="progress-label">Frage 1 von 10</span>
+            <span id="score-label">Richtig: 0</span>
+          </div>
+        </div>
+
+        <div class="card question-card">
+          <p id="question-chapter" class="chapter-tag"></p>
+          <h2 id="question-text"></h2>
+          <div id="options-list" class="options-list"></div>
+          <div id="explanation-box" class="explanation-box hidden"></div>
+        </div>
+
+        <div class="quiz-actions">
+          <button type="button" id="btn-quit" class="btn btn-secondary">Abbrechen</button>
+          <button type="button" id="btn-next" class="btn btn-primary" disabled>Weiter</button>
+        </div>
+      </section>
+
+      <!-- ============ RESULT SCREEN ============ -->
+      <section id="screen-result" class="screen hidden">
+        <div class="card result-card">
+          <h2>Ergebnis</h2>
+          <p id="result-score" class="result-score"></p>
+          <div id="result-bar-track" class="progress-track">
+            <div id="result-bar" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Falsch beantwortete Fragen</h2>
+          <div id="wrong-list" class="wrong-list"></div>
+          <p id="no-wrong" class="hint hidden">Alles richtig beantwortet – stark! 🎉</p>
+        </div>
+
+        <div class="result-actions">
+          <button type="button" id="btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
+          <button type="button" id="btn-retry-wrong" class="btn btn-secondary btn-large">Nur Fehler wiederholen</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- MODE: KARTEIKARTEN (LERNMODUS)                                   -->
+    <!-- ================================================================ -->
+    <div id="mode-flashcards" class="mode-section hidden">
+
+      <!-- ============ FC START SCREEN ============ -->
+      <section id="screen-fc-start" class="screen">
+
+        <div class="card">
+          <h2>Kapitel auswählen</h2>
+          <div class="chapter-toolbar">
+            <button type="button" id="fc-btn-select-all" class="btn btn-small">Alle auswählen</button>
+            <button type="button" id="fc-btn-select-none" class="btn btn-small">Alle abwählen</button>
+          </div>
+
+          <div id="fc-chapter-groups"></div>
+        </div>
+
+        <div class="card">
+          <h2>Anzahl Karten</h2>
+          <div id="fc-count-options" class="pill-group"></div>
+        </div>
+
+        <div class="card summary-card">
+          <p><strong id="fc-available-count">0</strong> Karten passend zur Auswahl verfügbar.</p>
+          <button type="button" id="fc-btn-start" class="btn btn-primary btn-large">Karteikarten starten</button>
+          <button type="button" id="fc-btn-weak" class="btn btn-secondary btn-large" disabled>
+            Schwache Karten üben (aus Statistik)
+          </button>
+          <p id="fc-weak-hint" class="hint">Bewerte erst ein paar Karten, damit diese Funktion Daten hat.</p>
+        </div>
+
+        <div class="card stats-card">
+          <h2>Deine Statistik</h2>
+          <div id="fc-stats-summary"></div>
+          <button type="button" id="fc-btn-reset-stats" class="btn btn-danger btn-small">Statistik zurücksetzen</button>
+        </div>
+
+      </section>
+
+      <!-- ============ FC CARD SCREEN ============ -->
+      <section id="screen-fc-card" class="screen hidden">
+        <div class="quiz-progress">
+          <div class="progress-track">
+            <div id="fc-progress-bar" class="progress-bar"></div>
+          </div>
+          <div class="progress-text">
+            <span id="fc-progress-label">Karte 1 von 10</span>
+            <span id="fc-known-label">Kann ich: 0</span>
+          </div>
+        </div>
+
+        <div class="card fc-card">
+          <p id="fc-chapter-tag" class="chapter-tag"></p>
+          <div class="fc-face fc-front">
+            <p class="fc-face-label">Frage / Begriff</p>
+            <h2 id="fc-front-text"></h2>
+          </div>
+
+          <button type="button" id="fc-btn-reveal" class="btn btn-primary btn-large">Antwort zeigen</button>
+
+          <div id="fc-back-wrap" class="fc-face fc-back hidden">
+            <p class="fc-face-label">Antwort</p>
+            <p id="fc-back-text"></p>
+          </div>
+
+          <div id="fc-rate-buttons" class="fc-rate-buttons hidden">
+            <button type="button" id="fc-btn-again" class="btn btn-rate btn-rate-again">🔁 Nochmal</button>
+            <button type="button" id="fc-btn-known" class="btn btn-rate btn-rate-known">✅ Kann ich</button>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button type="button" id="fc-btn-quit" class="btn btn-secondary btn-full">Abbrechen</button>
+        </div>
+      </section>
+
+      <!-- ============ FC RESULT SCREEN ============ -->
+      <section id="screen-fc-result" class="screen hidden">
+        <div class="card result-card">
+          <h2>Ergebnis</h2>
+          <p id="fc-result-score" class="result-score"></p>
+          <div class="progress-track">
+            <div id="fc-result-bar" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Karten zum Wiederholen ("Nochmal")</h2>
+          <div id="fc-again-list" class="wrong-list"></div>
+          <p id="fc-no-again" class="hint hidden">Alles gewusst – stark! 🎉</p>
+        </div>
+
+        <div class="result-actions">
+          <button type="button" id="fc-btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
+          <button type="button" id="fc-btn-retry-again" class="btn btn-secondary btn-large">Nur "Nochmal"-Karten wiederholen</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- MODE: ÜBERSICHT                                                  -->
+    <!-- ================================================================ -->
+    <div id="mode-overview" class="mode-section hidden">
 
       <div class="card">
-        <h2>Kapitel auswählen</h2>
-        <div class="chapter-toolbar">
-          <button type="button" id="btn-select-all" class="btn btn-small">Alle auswählen</button>
-          <button type="button" id="btn-select-none" class="btn btn-small">Alle abwählen</button>
-        </div>
-
-        <div id="chapter-groups"></div>
-      </div>
-
-      <div class="card">
-        <h2>Anzahl Fragen</h2>
-        <div id="count-options" class="pill-group"></div>
-      </div>
-
-      <div class="card summary-card">
-        <p><strong id="available-count">0</strong> Fragen passend zur Auswahl verfügbar.</p>
-        <button type="button" id="btn-start" class="btn btn-primary btn-large">Quiz starten</button>
-        <button type="button" id="btn-weak" class="btn btn-secondary btn-large" disabled>
-          Schwache Fragen üben (aus Statistik)
-        </button>
-        <p id="weak-hint" class="hint">Beantworte erst ein paar Fragen, damit diese Funktion Daten hat.</p>
-      </div>
-
-      <div class="card stats-card">
-        <h2>Deine Statistik</h2>
-        <div id="stats-summary"></div>
-        <button type="button" id="btn-reset-stats" class="btn btn-danger btn-small">Statistik zurücksetzen</button>
-      </div>
-
-    </section>
-
-    <!-- ============ QUIZ SCREEN ============ -->
-    <section id="screen-quiz" class="screen hidden">
-      <div class="quiz-progress">
-        <div class="progress-track">
-          <div id="progress-bar" class="progress-bar"></div>
-        </div>
-        <div class="progress-text">
-          <span id="progress-label">Frage 1 von 10</span>
-          <span id="score-label">Richtig: 0</span>
+        <h2>Schnellzugriff</h2>
+        <div id="overview-index" class="overview-index">
+          <p class="ov-index-title">Teil I: Schulrecht</p>
+          <a href="#ov-1-1" data-target="ov-1-1">1.1</a>
+          <a href="#ov-1-2" data-target="ov-1-2">1.2</a>
+          <a href="#ov-1-3" data-target="ov-1-3">1.3</a>
+          <a href="#ov-1-4" data-target="ov-1-4">1.4</a>
+          <a href="#ov-1-5" data-target="ov-1-5">1.5</a>
+          <a href="#ov-1-6" data-target="ov-1-6">1.6</a>
+          <a href="#ov-1-7" data-target="ov-1-7">1.7</a>
+          <a href="#ov-1-8" data-target="ov-1-8">1.8</a>
+          <a href="#ov-1-9" data-target="ov-1-9">1.9</a>
+          <a href="#ov-1-10" data-target="ov-1-10">1.10</a>
+          <a href="#ov-1-11" data-target="ov-1-11">1.11</a>
+          <a href="#ov-1-12" data-target="ov-1-12">1.12</a>
+          <a href="#ov-1-13" data-target="ov-1-13">1.13</a>
+          <a href="#ov-1-14" data-target="ov-1-14">1.14</a>
+          <a href="#ov-1-15" data-target="ov-1-15">1.15</a>
+          <p class="ov-index-title">Teil II: Beamtenrecht</p>
+          <a href="#ov-2-1" data-target="ov-2-1">2.1</a>
+          <a href="#ov-2-2" data-target="ov-2-2">2.2</a>
+          <a href="#ov-2-3" data-target="ov-2-3">2.3</a>
+          <a href="#ov-2-4" data-target="ov-2-4">2.4</a>
+          <a href="#ov-2-5" data-target="ov-2-5">2.5</a>
+          <a href="#ov-2-6" data-target="ov-2-6">2.6</a>
+          <a href="#ov-2-7" data-target="ov-2-7">2.7</a>
+          <a href="#ov-2-8" data-target="ov-2-8">2.8</a>
+          <a href="#ov-2-9" data-target="ov-2-9">2.9</a>
         </div>
       </div>
 
-      <div class="card question-card">
-        <p id="question-chapter" class="chapter-tag"></p>
-        <h2 id="question-text"></h2>
-        <div id="options-list" class="options-list"></div>
-        <div id="explanation-box" class="explanation-box hidden"></div>
-      </div>
+      <h2 class="ov-part-title">Teil I: Schulrecht</h2>
 
-      <div class="quiz-actions">
-        <button type="button" id="btn-quit" class="btn btn-secondary">Abbrechen</button>
-        <button type="button" id="btn-next" class="btn btn-primary" disabled>Weiter</button>
-      </div>
-    </section>
-
-    <!-- ============ RESULT SCREEN ============ -->
-    <section id="screen-result" class="screen hidden">
-      <div class="card result-card">
-        <h2>Ergebnis</h2>
-        <p id="result-score" class="result-score"></p>
-        <div id="result-bar-track" class="progress-track">
-          <div id="result-bar" class="progress-bar"></div>
+      <details id="ov-1-1" class="card ov-details">
+        <summary>1.1 Pädagogik und Recht</summary>
+        <div class="ov-content">
+          <p class="ov-lead">Ablauf der juristischen Fallbearbeitung:</p>
+          <ol class="step-list">
+            <li>Feststellung des <strong>Sachverhalts</strong></li>
+            <li>Zuordnung zum gesetzlichen <strong>Tatbestand</strong> (Subsumtion)</li>
+            <li>Auswahl der <strong>Rechtsfolge</strong> (gebundene Entscheidung oder Ermessen)</li>
+          </ol>
+          <table class="ov-table">
+            <tr><th>Formulierung</th><th>Bedeutung</th></tr>
+            <tr><td>kann, braucht nicht</td><td>Ermessen</td></tr>
+            <tr><td>grundsätzlich</td><td>Regelfall verpflichtend, Ausnahme nach Ermessen</td></tr>
+            <tr><td>soll, in der Regel</td><td>Regelfall ein Muss, begründete Ausnahmen möglich</td></tr>
+            <tr><td>muss, hat zu, ist, wird, darf nicht</td><td>kein Ermessen, keine Abweichung</td></tr>
+            <tr><td>im Einvernehmen mit</td><td>vorheriges Einverständnis nötig</td></tr>
+            <tr><td>im Benehmen mit</td><td>nur Gelegenheit zur Stellungnahme</td></tr>
+          </table>
+          <p class="ov-lead">4 Quellen für Ermessensfehler:</p>
+          <ul>
+            <li><strong>Ermessensnichtgebrauch</strong> – keine Einzelfallprüfung</li>
+            <li><strong>Ermessensmissbrauch</strong> – sachfremde Erwägungen</li>
+            <li><strong>Ermessensüberschreitung</strong> – Rechtsfolge außerhalb des gesetzlichen Rahmens</li>
+            <li><strong>Unverhältnismäßigkeit</strong> – Maßnahme im Rahmen, aber zu milde/streng</li>
+          </ul>
         </div>
-      </div>
+      </details>
 
-      <div class="card">
-        <h2>Falsch beantwortete Fragen</h2>
-        <div id="wrong-list" class="wrong-list"></div>
-        <p id="no-wrong" class="hint hidden">Alles richtig beantwortet – stark! 🎉</p>
-      </div>
+      <details id="ov-1-2" class="card ov-details">
+        <summary>1.2 Erziehungs- und Bildungsauftrag</summary>
+        <div class="ov-content">
+          <p class="ov-lead">Rechtliche Verankerung:</p>
+          <ul class="hierarchy-list">
+            <li>Grundgesetz Art. 6
+              <ul><li>Landesverfassung BW Art. 12</li></ul>
+            </li>
+            <li>SchG § 1</li>
+          </ul>
+          <p>Werte: „Geist christlicher Nächstenliebe", „Menschlichkeit und Friedensliebe", „Achtung der Würde und Überzeugung anderer".</p>
+          <p class="ov-note">Der Staat kann laut Bundesverfassungsgericht in der Schule unabhängig von den Eltern eigene Erziehungsziele verfolgen – siehe auch <a href="#ov-1-10" data-target="ov-1-10" class="ov-link">1.10 Dualität des Erziehungsauftrags</a>.</p>
+        </div>
+      </details>
 
-      <div class="result-actions">
-        <button type="button" id="btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
-        <button type="button" id="btn-retry-wrong" class="btn btn-secondary btn-large">Nur Fehler wiederholen</button>
-      </div>
-    </section>
+      <details id="ov-1-3" class="card ov-details">
+        <summary>1.3 Rechtsquellen im Schulrecht</summary>
+        <div class="ov-content">
+          <p class="ov-lead">Normenpyramide (von oben nach unten, mit Urheber):</p>
+          <ol class="pyramid-list">
+            <li><strong>Landesverfassung / Grundgesetz</strong></li>
+            <li><strong>Gesetze</strong> (z.B. SchG) <span class="ov-who">→ Landtag BW</span></li>
+            <li><strong>Rechtsverordnungen</strong> (z.B. NVO, Abiturverordnung) <span class="ov-who">→ Kultusministerium</span></li>
+            <li><strong>Verwaltungsvorschriften / Erlasse</strong> (z.B. Abiturerlass) <span class="ov-who">→ KM bzw. Regierungspräsidien</span></li>
+          </ol>
+          <p class="ov-note">„Wesentliche Entscheidungen" (z.B. Bildungspläne, Erziehungs-/Ordnungsmaßnahmen) muss der Gesetzgeber selbst treffen – nicht die Verwaltung.</p>
+          <p class="ov-note">KMK-Beschlüsse sind <strong>nicht</strong> unmittelbar geltendes Recht (Kulturhoheit der Länder, GG Art. 70) – Ausnahme: Hamburger Abkommen 1964 (2020 abgelöst) schafft Mindeststandards.</p>
+        </div>
+      </details>
+
+      <details id="ov-1-4" class="card ov-details">
+        <summary>1.4 Gliederung des Schulwesens in BW</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Pflichtschulen (fester Bezirk)</th><th>Wahlschulen (kein fester Bezirk)</th></tr>
+            <tr><td>Grundschule, Berufsschule, SBBZ</td><td>HS, WRS, RS, GMS, Gymnasium, Berufsfachschule, Berufskolleg</td></tr>
+          </table>
+          <p class="ov-lead">Schulstufen (Zeitverlauf):</p>
+          <div class="timeline">
+            <div class="timeline-step">Primarstufe<br><span>Kl. 1–4</span></div>
+            <div class="timeline-step">Sekundarstufe I<br><span>Kl. 5–9/10</span></div>
+            <div class="timeline-step">Sekundarstufe II<br><span>G8: 10–12 / G9: 11–13</span></div>
+          </div>
+          <p class="ov-lead">Grundschulempfehlung – „2 aus 3"-Regel:</p>
+          <ol><li>Empfehlung der Klassenkonferenz</li><li>Kompass 4 (Deutsch/Mathe)</li><li>Elternwunsch</li></ol>
+          <table class="ov-table">
+            <tr><th>Ersatzschule</th><th>Ergänzungsschule</th></tr>
+            <tr><td>ersetzt öffentliche Schule, erfüllt Schulpflicht (z.B. Waldorfschule, ELGS)</td><td>keine Schulpflicht-Erfüllung (z.B. Sprachschule)</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <details id="ov-1-5" class="card ov-details">
+        <summary>1.5 Schulträger, Lernmittelfreiheit</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Schulträger (z.B. Gemeinde)</th><th>Land BW (Dienstherr)</th></tr>
+            <tr><td>Sachkosten, Gebäude, Sekretariat/Hausmeister als Arbeitgeber</td><td>Personalkosten der Lehrkräfte</td></tr>
+          </table>
+          <p class="ov-note">Lehrmittel (Kosten: Schulträger) vs. Lernmittel (teils Schulträger, teils Eltern – Geringfügigkeitsgrenze ca. 1 €). Kopierpauschale nur freiwillig zulässig, keine Kaution/Leihgebühr.</p>
+        </div>
+      </details>
+
+      <details id="ov-1-6" class="card ov-details">
+        <summary>1.6 Schulaufsicht</summary>
+        <div class="ov-content">
+          <p class="ov-lead">Hierarchie der Schulaufsicht:</p>
+          <ul class="hierarchy-list">
+            <li><strong>Kultusministerium</strong> – oberste SB, zuständig für Gymnasien (Rechtsverordnungen, Bildungspläne, Prüfungsordnungen)
+              <ul>
+                <li><strong>Regierungspräsidien (4)</strong> – obere SB, zuständig für Gymnasien (Fachaufsicht Schulen, Dienstaufsicht Lehrkräfte/SL)
+                  <ul>
+                    <li><strong>Staatliche Schulämter</strong> – untere SB, <em>nicht</em> für Gymnasien! Zuständig für GS/HS/WRS/RS</li>
+                    <li><strong>Schule</strong> – SL: Dienstaufsicht über Lehrer</li>
+                    <li><strong>Seminar</strong> – Seminarleiter: Dienst-/Fachaufsicht über Lehrbeauftragte</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p class="ov-note">Am Gymnasium und bei beruflichen Schulen wird das Schulamt übersprungen – dort ist direkt das RP zuständig.</p>
+          <table class="ov-table">
+            <tr><th>Fachaufsicht</th><th>Dienstaufsicht</th><th>Trägeraufsicht</th></tr>
+            <tr><td>Einhaltung Bildungspläne, Unterrichtsqualität</td><td>Erfüllung Dienstpflichten der Lehrkräfte</td><td>Pflichten des Schulträgers</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <details id="ov-1-7" class="card ov-details">
+        <summary>1.7 Verwaltungsakte, Widerspruch</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th></th><th>Verwaltungshandeln</th><th>Verwaltungsakt</th></tr>
+            <tr><td>Tragweite</td><td>gering (Betriebsverhältnis)</td><td>hoch (Grundverhältnis)</td></tr>
+            <tr><td>Beispiel</td><td>Umsetzen im Klassenzimmer</td><td>Nichtversetzung, Schulausschluss</td></tr>
+            <tr><td>Rechtsmittel</td><td>formlose Beschwerde</td><td>förmlicher Widerspruch</td></tr>
+          </table>
+          <div class="timeline">
+            <div class="timeline-step">Widerspruch<br><span>i.d.R. 1 Monat<br>(ohne Belehrung: 1 Jahr)</span></div>
+            <div class="timeline-step">Abhilfe durch Schule?<br><span>nein →</span></div>
+            <div class="timeline-step">Regierungspräsidium entscheidet</div>
+            <div class="timeline-step">Klage Verwaltungsgericht möglich</div>
+          </div>
+        </div>
+      </details>
+
+      <details id="ov-1-8" class="card ov-details">
+        <summary>1.8 Schulverfassung, Konferenzen</summary>
+        <div class="ov-content">
+          <p class="ov-lead">Schulkonferenz als „gemeinsames Organ der Schule" (§ 47 SchG):</p>
+          <ul class="hierarchy-list">
+            <li><strong>Schulkonferenz</strong> (SL Vorsitz, Elternbeirat stv. Vorsitz, je 3 Lehrkräfte/Eltern/Schüler)
+              <ul>
+                <li>gespeist von: <strong>Gesamtlehrerkonferenz (GLK)</strong></li>
+                <li>gespeist von: <strong>Elternbeirat</strong> (= alle Klassenelternvertreter)</li>
+                <li>gespeist von: <strong>Schülerrat</strong></li>
+              </ul>
+            </li>
+          </ul>
+          <table class="ov-table">
+            <tr><th>Beteiligung der Schulkonferenz</th><th>Beispiel</th></tr>
+            <tr><td>Anhörung (Mitwirkung)</td><td>Verwendung Haushaltsmittel</td></tr>
+            <tr><td>Einverständnis (Mitbestimmung)</td><td>Haus-/Pausenordnung, Stundentafel</td></tr>
+            <tr><td>Entscheidung kann gegen GLK fallen</td><td>Unterrichtsverteilung 5/6-Tage-Woche</td></tr>
+            <tr><td>keine Beteiligung</td><td>Lehrerfortbildung, Vertretungspläne</td></tr>
+          </table>
+          <p class="ov-note">Referendare: beratende Stimme in GLK/Fach-/Klassenkonferenz, kein Sitz in der Schulkonferenz.</p>
+        </div>
+      </details>
+
+      <details id="ov-1-9" class="card ov-details">
+        <summary>1.9 Rechtsstellung SuS, Schulpflicht</summary>
+        <div class="ov-content">
+          <p class="ov-lead">Schulpflicht = Verhaltenspflicht + Schulbesuchspflicht (bis 18. Lebensjahr).</p>
+          <table class="ov-table">
+            <tr><th>Verhinderung</th><th>Entschuldigung</th></tr>
+            <tr><td>1./2. Tag</td><td>formlos (mündlich/telefonisch)</td></tr>
+            <tr><td>ab 3. Tag</td><td>schriftlich/elektronisch nötig</td></tr>
+          </table>
+          <div class="timeline">
+            <div class="timeline-step">bis 12 J.<br><span>Eltern entscheiden Religion/Ethik</span></div>
+            <div class="timeline-step">ab 12 J.<br><span>keine Abmeldung gg. Willen des Kindes</span></div>
+            <div class="timeline-step">ab 14 J.<br><span>Religionsmündigkeit – Kind entscheidet selbst</span></div>
+            <div class="timeline-step">ab 18 J.<br><span>Volljährigkeit – Selbstentschuldigung</span></div>
+          </div>
+          <p class="ov-note">Grundrechte gelten auch an der Schule (Art. 2, 3, 4, 5, 8, 12 GG), können aber durch Gesetze eingeschränkt werden – der Wesensgehalt bleibt geschützt.</p>
+        </div>
+      </details>
+
+      <details id="ov-1-10" class="card ov-details">
+        <summary>1.10 Mitwirkung der Eltern</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Individualrechte</th><th>Kollektive Rechte</th><th>Repräsentative Rechte</th></tr>
+            <tr><td>betrifft eigenes Kind: Entscheidung (Wahlschule, Religion/Ethik), Information (Noten)</td><td>betrifft ganze Klasse: Klassenpflegschaft (Elternabend)</td><td>Mitwirkungsgremien: Elternbeirat (nur Info-/Anhörungsrecht)</td></tr>
+          </table>
+          <p class="ov-note">Ab Volljährigkeit des Kindes: kollektive Rechte bleiben, Individualrechte erlöschen grundsätzlich (außer der/die Schüler*in widerspricht der Auskunft an die Eltern nicht).</p>
+        </div>
+      </details>
+
+      <details id="ov-1-11" class="card ov-details">
+        <summary>1.11 Erziehungs- und Ordnungsmaßnahmen</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th></th><th>§ 23 SchG (präventiv/pädagogisch)</th><th>§ 90 SchG (EOM)</th></tr>
+            <tr><td>Charakter</td><td>Verwaltungshandeln</td><td>Verwaltungsakt</td></tr>
+            <tr><td>Voraussetzung</td><td>allgemeine/einzelfallbezogene Anordnung</td><td>schweres/wiederholtes Fehlverhalten</td></tr>
+            <tr><td>Beispiele</td><td>Klassenregeln, Ermahnung, Strafarbeit</td><td>Nachsitzen, Ausschluss, Schulausschluss</td></tr>
+          </table>
+          <table class="ov-table">
+            <tr><th>Zuständig</th><th>Maßnahmen</th></tr>
+            <tr><td>Klassenlehrer / unterrichtende Lehrkraft</td><td>Nachsitzen ≤ 2 Std., Überweisung Parallelklasse</td></tr>
+            <tr><td>Schulleiter*in</td><td>Ausschluss vom Unterricht ≤ 4 Wochen, Schulausschluss, Androhung</td></tr>
+          </table>
+          <p class="ov-lead">5 Grundsätze:</p>
+          <ol><li>Anhörungsrecht</li><li>Einzelfallprüfung (Geeignetheit/Erforderlichkeit)</li><li>Schulbezug (unmittelbar/mittelbar)</li><li>keine Mehrfachbestrafung</li><li>keine Kollektivstrafen</li></ol>
+        </div>
+      </details>
+
+      <details id="ov-1-12" class="card ov-details">
+        <summary>1.12 Aufsichtspflicht</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Situation</th><th>Aufsichtspflicht?</th></tr>
+            <tr><td>Schulweg</td><td>nein</td></tr>
+            <tr><td>Unterrichtsweg (z.B. Schule–Schwimmbad)</td><td>ja</td></tr>
+            <tr><td>10–15 Min. vor/nach Unterricht</td><td>ja</td></tr>
+            <tr><td>Kleine/große Pausen</td><td>ja</td></tr>
+            <tr><td>Mittagspause</td><td>nein (außer Ganztagsangebot)</td></tr>
+            <tr><td>AUV (Klassenfahrt etc.)</td><td>ja, "rund um die Uhr"</td></tr>
+            <tr><td>volljährige SuS</td><td>nein (nur Fürsorgepflicht)</td></tr>
+          </table>
+          <p class="ov-lead">3 Prinzipien:</p>
+          <p>Vorausschauende Umsicht · Ununterbrochene Beständigkeit · Kontrollierende Nachdrücklichkeit</p>
+        </div>
+      </details>
+
+      <details id="ov-1-13" class="card ov-details">
+        <summary>1.13 Außerunterrichtliche Veranstaltungen (AUV)</summary>
+        <div class="ov-content">
+          <ul>
+            <li>Genehmigung: <strong>Schulleitung</strong></li>
+            <li>Aufsicht „rund um die Uhr" = Verhaltensregeln + Stichproben, keine schlaflosen Nächte</li>
+            <li>Wasseraufenthalt: verantwortliche Lehrkraft braucht <strong>Rettungsfähigkeit</strong></li>
+            <li>Reisevertrag: Lehrkraft handelt in Stellvertretung, schuldet Reisepreis nicht selbst</li>
+            <li>SuS immer gesetzlich unfallversichert</li>
+          </ul>
+        </div>
+      </details>
+
+      <details id="ov-1-14" class="card ov-details">
+        <summary>1.14 Schulbezogenes Jugendrecht</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Personensorgeberechtigt</th><th>Erziehungsbeauftragt</th></tr>
+            <tr><td>Eltern / vom Familiengericht Beauftragte</td><td>jede Person &gt; 18 J., die im Ausbildungsrahmen betreut (auch Lehrkräfte)</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <details id="ov-1-15" class="card ov-details">
+        <summary>1.15 Leistungsfeststellung, Zeugnisse, Versetzung</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Art</th><th>Ankündigung</th><th>Anzahl/Jahr</th></tr>
+            <tr><td>Klassenarbeit</td><td>ja</td><td>Kernfach: mind. 4</td></tr>
+            <tr><td>Schriftl. Wdh.-Arbeit</td><td>nein</td><td>keine Mindestzahl</td></tr>
+            <tr><td>Test</td><td>nein</td><td>untergeordnetes Gewicht</td></tr>
+            <tr><td>GFS</td><td>–</td><td>zusätzlich zur KA, ab Kl. 7: 1/Jahr</td></tr>
+          </table>
+          <p class="ov-lead">Versetzungsvoraussetzungen (vereinfacht):</p>
+          <ol>
+            <li>Ø aller maßgebenden Fächer ≥ 4,0</li>
+            <li>Ø der Kernfächer ≥ 4,0</li>
+            <li>in keinem Kernfach Note 6</li>
+            <li>KuMuTu-Regel: bei Sport/Musik/Kunst zählt nur die beste Note der drei</li>
+          </ol>
+          <p class="ov-note">Härtefallklauseln: § 1(3) vorübergehender Leistungsabfall · § 1(6) Versetzung auf Probe (Vetorecht SL) · § 3 Aussetzen der Entscheidung.</p>
+        </div>
+      </details>
+
+      <h2 class="ov-part-title">Teil II: Beamtenrecht</h2>
+
+      <details id="ov-2-1" class="card ov-details">
+        <summary>2.1 Grundlagen des Beamtenrechts</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th></th><th>Beamte</th><th>Angestellte</th></tr>
+            <tr><td>Begründung</td><td>Ernennung</td><td>Arbeitsvertrag</td></tr>
+            <tr><td>Fehlverhalten</td><td>Disziplinarverfahren</td><td>Abmahnung/Kündigung</td></tr>
+            <tr><td>Altersversorgung</td><td>Pension</td><td>Rente</td></tr>
+            <tr><td>Vergütung</td><td>Besoldungsgesetz</td><td>Tarifvertrag</td></tr>
+          </table>
+          <p class="ov-lead">Leitbild des Beamtentums (GG Art. 33):</p>
+          <p>Unbestechlichkeit · Fachkundigkeit · Unabhängigkeit · Funktionsfähigkeit</p>
+        </div>
+      </details>
+
+      <details id="ov-2-2" class="card ov-details">
+        <summary>2.2 Arbeitszeit der Lehrkräfte</summary>
+        <div class="ov-content">
+          <p class="ov-lead">25 Deputatsstunden × Faktor 1,8 = 45-Std.-Woche</p>
+          <table class="ov-table">
+            <tr><th>Tätigkeit</th><th>Anrechnung</th></tr>
+            <tr><td>Unterricht, volle Vor-/Nachbereitung</td><td>1 Deputatsstunde</td></tr>
+            <tr><td>eingeschränkte Vor-/Nachbereitung</td><td>0,67 Deputatsstunden</td></tr>
+            <tr><td>keine/geringe Vor-/Nachbereitung</td><td>0,5 Deputatsstunden</td></tr>
+          </table>
+        </div>
+      </details>
+
+      <details id="ov-2-3" class="card ov-details">
+        <summary>2.3 Vorgesetzte</summary>
+        <div class="ov-content">
+          <ul class="hierarchy-list">
+            <li><strong>Dienstherr</strong>: Land BW
+              <ul>
+                <li><strong>Oberste Dienstbehörde</strong>: Kultusministerium</li>
+                <li><strong>Dienstvorgesetzter</strong> (persönliche Angelegenheiten): Regierungspräsidium</li>
+                <li><strong>Vorgesetzte</strong> (dienstliche Tätigkeit): Schulleiter*in, stv. SL, Abteilungsleiter*in</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details id="ov-2-4" class="card ov-details">
+        <summary>2.4 Laufbahnrecht</summary>
+        <div class="ov-content">
+          <div class="timeline">
+            <div class="timeline-step">Vorbereitungsdienst<br><span>Beamter auf Widerruf, 18 Monate</span></div>
+            <div class="timeline-step">Probezeit<br><span>Beamter auf Probe, i.d.R. 3 Jahre</span></div>
+            <div class="timeline-step">Übernahme<br><span>Beamter auf Lebenszeit</span></div>
+          </div>
+          <p class="ov-note">Laufbahngruppen: einfacher, mittlerer, gehobener, höherer Dienst (ab Studienrat, A13). Dienstliche Beurteilung: 9 Monate nach Einstellung + 3 Monate vor Probezeitende.</p>
+        </div>
+      </details>
+
+      <details id="ov-2-5" class="card ov-details">
+        <summary>2.5 Einstellung und Entlassung</summary>
+        <div class="ov-content">
+          <p class="ov-lead">Ernennungsvoraussetzungen: Deutsche/EU-Staatsangehörigkeit · Höchstalter i.d.R. 42 J. · Eignung, Befähigung, fachliche Leistung.</p>
+          <p class="ov-lead">Beendigung des Beamtenverhältnisses:</p>
+          <ul>
+            <li>Rücknahme der Ernennung (Täuschung/Bestechung)</li>
+            <li>Entlassung (z.B. Ablauf Probezeit)</li>
+            <li>Verlust der Beamtenrechte (ab 1 Jahr Freiheitsstrafe)</li>
+            <li>Ruhestand, Tod</li>
+          </ul>
+        </div>
+      </details>
+
+      <details id="ov-2-6" class="card ov-details">
+        <summary>2.6 Pflichten und Rechte der Beamten</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Pflichten</th><th>Beispiele</th></tr>
+            <tr><td>Dienstleistungspflichten</td><td>voller persönlicher Einsatz</td></tr>
+            <tr><td>Treuepflichten</td><td>Verfassungstreue, Remonstration, Streikverbot</td></tr>
+            <tr><td>Verhaltenspflichten</td><td>Amtsverschwiegenheit, Uneigennützigkeit, Unparteilichkeit, politische/religiöse Neutralität</td></tr>
+          </table>
+          <table class="ov-table">
+            <tr><th>Rechte</th><th>Beispiele</th></tr>
+            <tr><td>Vermögenswerte Rechte</td><td>Besoldung, Beihilfe</td></tr>
+            <tr><td>Fürsorgerechte</td><td>Urlaub, Ermäßigung nach Erkrankung</td></tr>
+            <tr><td>Schutzrechte</td><td>Beschwerderecht, dienstliche Beurteilung</td></tr>
+          </table>
+          <p class="ov-note">Beutelsbacher Konsens: Überwältigungsverbot · Kontroversitätsgebot · Prinzip der Urteilsbefähigung.</p>
+        </div>
+      </details>
+
+      <details id="ov-2-7" class="card ov-details">
+        <summary>2.7 Personalvertretung</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Ebene</th><th>Personalrat</th></tr>
+            <tr><td>Kultusministerium</td><td>Hauptpersonalrat (HPR)</td></tr>
+            <tr><td>Regierungspräsidium</td><td>Bezirkspersonalrat (BPR)</td></tr>
+            <tr><td>Schule / Schulamt</td><td>Örtlicher Personalrat (ÖPR)</td></tr>
+          </table>
+          <p class="ov-lead">Beteiligungsstufen (schwach → stark):</p>
+          <p>Anhörung → Mitwirkung → Mitbestimmung (z.B. Einstellung, Beförderung, Versetzung)</p>
+        </div>
+      </details>
+
+      <details id="ov-2-8" class="card ov-details">
+        <summary>2.8 Pflichtverletzung: Dienstvergehen von Beamten</summary>
+        <div class="ov-content">
+          <table class="ov-table">
+            <tr><th>Folgenart</th><th>Beispiel</th></tr>
+            <tr><td>Disziplinarrechtlich</td><td>Missbilligung → Geldbuße → Entfernung aus dem Dienst</td></tr>
+            <tr><td>Vermögensrechtlich</td><td>Dienstherr haftet, Regress bei Vorsatz/grober Fahrlässigkeit</td></tr>
+            <tr><td>Strafrechtlich</td><td>zusätzlich möglich ("Doppelbestrafung"), z.B. Körperverletzung im Amt</td></tr>
+          </table>
+          <p class="ov-note">Eskalationsleiter Schulleiter: Weisung → Unterrichtsbesuch → Missbilligung. Schulaufsicht: Disziplinarmaßnahme → Spannungsversetzung → Dienstfähigkeitsprüfung.</p>
+        </div>
+      </details>
+
+      <details id="ov-2-9" class="card ov-details">
+        <summary>2.9 Rechtsstellung der Referendare</summary>
+        <div class="ov-content">
+          <ul>
+            <li>Status: <strong>Beamte auf Widerruf</strong></li>
+            <li>Ende: kraft Gesetzes mit Mitteilung des Prüfungsergebnisses</li>
+            <li>Einschränkungen ggü. anderen Beamten: keine längerfristige Beurlaubung, eingeschränkte Nebentätigkeiten</li>
+            <li>Zusatzunterricht bei Bedarf: bis 24 Std./Monat vergütbar</li>
+            <li>Vorzeitige Entlassung z.B. bei Verlängerung &gt; 2 Unterrichtshalbjahre</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
 
   </main>
 
   <footer class="app-footer">
-    <p>Fragen basieren auf der Zusammenfassung „Leitfaden Repetitorium 2025" – kein Ersatz für die Originalquellen/Gesetzestexte.</p>
+    <p>Inhalte basieren auf der Zusammenfassung „Leitfaden Repetitorium 2025" – kein Ersatz für die Originalquellen/Gesetzestexte.</p>
   </footer>
 
 </div>
 
 <script src="questions.js"></script>
+<script src="flashcards-data.js"></script>
+<script src="nav.js"></script>
 <script src="app.js"></script>
+<script src="flashcards.js"></script>
 </body>
 </html>

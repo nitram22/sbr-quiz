@@ -62,30 +62,11 @@
   }
 
   // ---------------------------------------------------------------------
-  // Utility
+  // Utility (shuffle/el/chapterList kommen aus nav.js, dort geladen vor app.js)
   // ---------------------------------------------------------------------
-  function shuffle(arr) {
-    var a = arr.slice();
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-    }
-    return a;
-  }
-
-  function el(id) { return document.getElementById(id); }
-
-  function chapterList() {
-    var order = [];
-    var seen = {};
-    ALL_QUESTIONS.forEach(function (q) {
-      if (!seen[q.chapter]) {
-        seen[q.chapter] = true;
-        order.push({ chapter: q.chapter, part: q.part });
-      }
-    });
-    return order;
-  }
+  var shuffle = window.shuffle;
+  var el = window.el;
+  function chapterList() { return window.chapterListOf(ALL_QUESTIONS); }
 
   // ---------------------------------------------------------------------
   // State
