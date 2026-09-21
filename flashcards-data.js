@@ -24,9 +24,6 @@ window.FLASHCARDS = [
     back: "Ermessensnichtgebrauch (keine Einzelfallprüfung), Ermessensmissbrauch (sachfremde Erwägungen), Ermessensüberschreitung (Rechtsfolge außerhalb des Rahmens), Unverhältnismäßigkeit (zu milde/streng)." },
 
   // ===================== 1.2 Erziehungs- und Bildungsauftrag =====================
-  { id: "fc-sr-1.2-01", part: "Schulrecht", chapter: "1.2 Erziehungs- und Bildungsauftrag",
-    front: "Wo ist der Erziehungs- und Bildungsauftrag der Schule verfassungsrechtlich verankert?",
-    back: "Grundgesetz Art. 6, Landesverfassung BW Art. 12, SchG § 1." },
   { id: "fc-sr-1.2-02", part: "Schulrecht", chapter: "1.2 Erziehungs- und Bildungsauftrag",
     front: "Nenne zwei in der Landesverfassung genannte Erziehungswerte.",
     back: "U.a. \"Geist christlicher Nächstenliebe\", \"Menschlichkeit und Friedensliebe\", \"Achtung der Würde und Überzeugung anderer\"." },
@@ -96,8 +93,8 @@ window.FLASHCARDS = [
 
   // ===================== 1.6 Schulaufsicht =====================
   { id: "fc-sr-1.6-01", part: "Schulrecht", chapter: "1.6 Schulaufsicht",
-    front: "Rechtsgrundlage der staatlichen Schulaufsicht?",
-    back: "GG Art. 7: \"Das gesamte Schulwesen steht unter der Aufsicht des Staates.\"" },
+    front: "Wessen Aufgabe ist die Aufsicht über das gesamte Schulwesen laut Grundgesetz?",
+    back: "Der Staat (\"Das gesamte Schulwesen steht unter der Aufsicht des Staates\")." },
   { id: "fc-sr-1.6-02", part: "Schulrecht", chapter: "1.6 Schulaufsicht",
     front: "Oberste Schulaufsichtsbehörde – zuständig für Gymnasien?",
     back: "Das Kultusministerium (Rechtsverordnungen, Bildungspläne, Versetzungs-/Prüfungsordnungen)." },
@@ -208,11 +205,8 @@ window.FLASHCARDS = [
 
   // ===================== 1.11 Erziehungs- und Ordnungsmaßnahmen =====================
   { id: "fc-sr-1.11-01", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
-    front: "Rechtsgrundlage für präventive/pädagogische Erziehungsmaßnahmen?",
-    back: "§ 23 SchG." },
-  { id: "fc-sr-1.11-02", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
-    front: "Rechtsgrundlage für Erziehungs- und Ordnungsmaßnahmen (EOM)?",
-    back: "§ 90 SchG." },
+    front: "Rechtlicher Charakter: pädagogische Erziehungsmaßnahme vs. Erziehungs- und Ordnungsmaßnahme (EOM)?",
+    back: "Pädagogische Maßnahme = formloses Verwaltungshandeln. EOM = Verwaltungsakt (Widerspruchsrecht), erst wenn pädagogische Maßnahmen nicht mehr ausreichen." },
   { id: "fc-sr-1.11-03", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
     front: "Voraussetzung für § 90 SchG?",
     back: "Schweres oder wiederholtes Fehlverhalten, wenn pädagogische Erziehungsmaßnahmen nicht (mehr) ausreichen." },
@@ -389,8 +383,8 @@ window.FLASHCARDS = [
     front: "Was sind \"hoheitsrechtliche Befugnisse\"?",
     back: "Recht/Pflicht, im Namen des Staates verbindlich zu entscheiden und durchzusetzen." },
   { id: "fc-br-2.1-04", part: "Beamtenrecht", chapter: "2.1 Grundlagen des Beamtenrechts",
-    front: "Wo sind die hergebrachten Grundsätze des Berufsbeamtentums verankert?",
-    back: "GG Art. 33." },
+    front: "Was zählt zu den \"hergebrachten Grundsätzen des Berufsbeamtentums\"?",
+    back: "U.a. Amtsverschwiegenheit, politische Neutralität im Dienst, Laufbahn- und Leistungsprinzip." },
   { id: "fc-br-2.1-05", part: "Beamtenrecht", chapter: "2.1 Grundlagen des Beamtenrechts",
     front: "Was ist der \"Funktionsvorbehalt\"?",
     back: "Hoheitsrechtliche Befugnisse sind im Regelfall Beamten übertragen." },
@@ -485,9 +479,6 @@ window.FLASHCARDS = [
   { id: "fc-br-2.6-09", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
     front: "Dürfen Lehrkräfte ihre eigenen Kinder unterrichten?",
     back: "Nein – Grundsatz der Unparteilichkeit." },
-  { id: "fc-br-2.6-10", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
-    front: "Rechtsgrundlage des Geschenkeverbots für Beamte?",
-    back: "§ 42 Beamtenstatusgesetz (Tarifbeschäftigte: § 3 Abs. 3 TV-L)." },
   { id: "fc-br-2.6-11", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
     front: "Wer entscheidet über eine Ausnahme-Zustimmung zur Geschenkannahme?",
     back: "Der/die Schulleiter*in (nach KMZuVO), Entscheidung möglichst schriftlich." },

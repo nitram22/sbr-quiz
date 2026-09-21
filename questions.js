@@ -46,12 +46,6 @@ window.QUESTIONS = [
 
   // ===================== 1.2 Erziehungs- und Bildungsauftrag =====================
   {
-    id: "sr-1.2-01", part: "Schulrecht", chapter: "1.2 Erziehungs- und Bildungsauftrag",
-    question: "Wo ist der Erziehungs- und Bildungsauftrag der Schule neben dem Schulgesetz verfassungsrechtlich verankert?",
-    options: ["Grundgesetz Art. 6 und Landesverfassung BW Art. 12", "Grundgesetz Art. 7 und BGB", "Nur in der Landesverfassung", "Nur im Beamtenstatusgesetz"],
-    explanation: "Grundgesetz (Art. 6), Landesverfassung BW (Art. 12) und SchG § 1 definieren gemeinsam die Wertegrundlagen der schulischen Erziehung."
-  },
-  {
     id: "sr-1.2-02", part: "Schulrecht", chapter: "1.2 Erziehungs- und Bildungsauftrag",
     question: "Welche Werte werden in der Landesverfassung BW als Grundlage der schulischen Erziehung genannt?",
     options: ["U.a. \"Geist christlicher Nächstenliebe\" und \"Achtung der Würde und Überzeugung anderer\"", "Ausschließlich staatsbürgerliche Neutralität", "Nur wirtschaftliche Bildungsziele", "Ausschließlich Leistungsorientierung"],
@@ -205,9 +199,9 @@ window.QUESTIONS = [
   // ===================== 1.6 Schulaufsicht =====================
   {
     id: "sr-1.6-01", part: "Schulrecht", chapter: "1.6 Schulaufsicht",
-    question: "Wo ist die staatliche Schulaufsicht grundgesetzlich verankert?",
-    options: ["GG Art. 7 (\"Das gesamte Schulwesen steht unter der Aufsicht des Staates\")", "GG Art. 6", "GG Art. 33", "Nur im Schulgesetz BW"],
-    explanation: "Schulaufsicht ist demnach eine staatliche Aufgabe."
+    question: "Wessen Aufgabe ist laut Grundgesetz die Aufsicht über das gesamte Schulwesen?",
+    options: ["Der Staat (\"Das gesamte Schulwesen steht unter der Aufsicht des Staates\")", "Ausschließlich die Kommunen als Schulträger", "Die Kultusministerkonferenz allein", "Die Erziehungsberechtigten gemeinsam mit der Schulkonferenz"],
+    explanation: "Damit ist die Schulaufsicht verfassungsrechtlich als staatliche Aufgabe festgeschrieben (GG Art. 7)."
   },
   {
     id: "sr-1.6-02", part: "Schulrecht", chapter: "1.6 Schulaufsicht",
@@ -467,15 +461,9 @@ window.QUESTIONS = [
   // ===================== 1.11 Erziehungs- und Ordnungsmaßnahmen =====================
   {
     id: "sr-1.11-01", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
-    question: "Welcher Paragraph ist Rechtsgrundlage für präventive Maßnahmen und pädagogische Erziehungsmaßnahmen?",
-    options: ["§ 23 SchG", "§ 90 SchG", "§ 38 SchG", "§ 47 SchG"],
-    explanation: "§ 23 SchG ermöglicht den Erlass allgemeiner sowie einzelfallbezogener Anordnungen (z.B. Klassenregeln, Ermahnung)."
-  },
-  {
-    id: "sr-1.11-02", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
-    question: "Welcher Paragraph ist Rechtsgrundlage für die (schwerwiegenderen) Erziehungs- und Ordnungsmaßnahmen (EOM)?",
-    options: ["§ 90 SchG", "§ 23 SchG", "§ 41 SchG", "§ 8 NVO"],
-    explanation: "§ 90 SchG regelt den schwerwiegenden Rechtseingriff der EOM (z.B. Nachsitzen, Unterrichtsausschluss, Schulausschluss)."
+    question: "Welchen rechtlichen Charakter haben pädagogische Erziehungsmaßnahmen (z.B. Ermahnung, Klassenregel) im Unterschied zu Erziehungs- und Ordnungsmaßnahmen (EOM)?",
+    options: ["Pädagogische Maßnahmen sind bloßes, formloses Verwaltungshandeln; EOM sind dagegen Verwaltungsakte mit Widerspruchsrecht", "Beide sind gleichermaßen Verwaltungsakte mit Widerspruchsrecht", "Pädagogische Maßnahmen sind Verwaltungsakte, EOM dagegen nicht", "Es gibt rechtlich keinen Unterschied zwischen beiden"],
+    explanation: "Pädagogische Erziehungsmaßnahmen betreffen das Betriebsverhältnis und ermöglichen allgemeine wie einzelfallbezogene Anordnungen; EOM greifen so stark in die Rechtsstellung ein, dass sie als Verwaltungsakt ausgestaltet sind und erst zulässig sind, wenn pädagogische Maßnahmen nicht mehr ausreichen."
   },
   {
     id: "sr-1.11-03", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
@@ -879,9 +867,9 @@ window.QUESTIONS = [
   },
   {
     id: "br-2.1-03", part: "Beamtenrecht", chapter: "2.1 Grundlagen des Beamtenrechts",
-    question: "In welchem Artikel des Grundgesetzes sind die hergebrachten Grundsätze des Berufsbeamtentums verankert?",
-    options: ["GG Art. 33", "GG Art. 7", "GG Art. 6", "GG Art. 5"],
-    explanation: "Beispiele solcher Grundsätze: Amtsverschwiegenheit, politische Neutralität im Dienst, Laufbahn- und Leistungsprinzip."
+    question: "Was zählt zu den \"hergebrachten Grundsätzen des Berufsbeamtentums\"?",
+    options: ["U.a. Amtsverschwiegenheit, politische Neutralität im Dienst sowie das Laufbahn- und Leistungsprinzip", "Ausschließlich das Streikrecht der Beamten", "Nur die freie Wahl des Dienstortes", "Ausschließlich das Recht auf eine Vier-Tage-Woche"],
+    explanation: "Diese Grundsätze sind verfassungsrechtlich verankert (GG Art. 33) und müssen vom Gesetzgeber bei der Regelung des Beamtenrechts berücksichtigt werden."
   },
   {
     id: "br-2.1-04", part: "Beamtenrecht", chapter: "2.1 Grundlagen des Beamtenrechts",
@@ -1126,12 +1114,6 @@ window.QUESTIONS = [
     question: "Über welchen Weg muss eine Beschwerde eines Beamten grundsätzlich eingereicht werden?",
     options: ["Über den Dienstweg, beginnend mit der Schulleitung", "Direkt beim Kultusministerium, unter Umgehung der Schulleitung", "Direkt bei Gericht ohne vorheriges Verfahren", "Über den Personalrat als einzige zulässige Stelle"],
     explanation: "Das Beschwerderecht ist eines der Schutzrechte der Beamten."
-  },
-  {
-    id: "br-2.6-13", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
-    question: "In welchem Gesetz ist das Verbot der Annahme von Belohnungen und Geschenken für Beamte geregelt?",
-    options: ["§ 42 Beamtenstatusgesetz", "§ 90 SchG", "Im Landesbeamtengesetz gar nicht mehr geregelt", "Ausschließlich im TV-L"],
-    explanation: "Für Tarifbeschäftigte gilt die vergleichbare Regelung des § 3 Abs. 3 TV-L; früher war dies in § 89 LBG-alt geregelt."
   },
   {
     id: "br-2.6-14", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",

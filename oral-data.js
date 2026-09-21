@@ -30,7 +30,7 @@ window.ORAL_TOPICS = [
     ],
     nachfragen: [
       { frage: "Kann der Staat gegen den Willen der Eltern eigene Erziehungsziele verfolgen?", antwort: "Ja, laut Bundesverfassungsgericht innerhalb der Schule unabhängig von den Eltern." },
-      { frage: "Wo genau ist dieser Auftrag verankert?", antwort: "GG Art. 6, Landesverfassung Art. 12 sowie SchG § 1." }
+      { frage: "Welche Werte nennt die Landesverfassung als Grundlage der schulischen Erziehung?", antwort: "U.a. \"Geist christlicher Nächstenliebe\", Menschlichkeit und Friedensliebe, Achtung der Würde und Überzeugung anderer." }
     ] },
 
   { id: "mp-1.3-01", part: "Schulrecht", chapter: "1.3 Rechtsquellen im Schulrecht",
@@ -271,7 +271,7 @@ window.ORAL_TOPICS = [
     ],
     nachfragen: [
       { frage: "Dürfen Lehrkräfte Mitglied einer Partei sein?", antwort: "Ja, solange die Partei nicht verfassungswidrig ist." },
-      { frage: "Welche strafrechtliche Folge droht bei Vorteilsannahme?", antwort: "§ 331 StGB, Freiheitsstrafe bis zu 3 Jahren oder Geldstrafe." }
+      { frage: "Welche strafrechtliche Folge droht bei Vorteilsannahme?", antwort: "Freiheitsstrafe bis zu drei Jahren oder Geldstrafe." }
     ] },
 
   { id: "mp-2.7-01", part: "Beamtenrecht", chapter: "2.7 Personalvertretung",
