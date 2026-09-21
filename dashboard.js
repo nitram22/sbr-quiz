@@ -52,9 +52,14 @@
 
   // Rang-System entlang der in der App gelehrten Beamtenlaufbahn (Kapitel 2.4/2.1):
   // vom Bewerber über Widerruf/Probe/Lebenszeit bis zu den Beförderungsämtern.
+  // RANKS[0] ist ein Sonderfall: er gilt nur, solange wirklich noch NICHTS geübt wurde
+  // (rawPct === 0). Danach gilt ab dem allerersten Fortschritt (rawPct > 0) sofort
+  // mindestens RANKS[1], unabhängig davon, ob die gerundete Anzeige noch "0 %" zeigt -
+  // sonst wirkt "Noch 1 %" bei 0 % Anzeige wie "fast geschafft", obwohl es wegen der
+  // groben Mittelung über alle Kapitel/Modi tatsächlich noch deutlich mehr Übung braucht.
   var RANKS = [
     { min: 0, icon: "📋", title: "Bewerber/in" },
-    { min: 1, icon: "📝", title: "Beamter/Beamtin auf Widerruf", subtitle: "Vorbereitungsdienst" },
+    { min: 0, icon: "📝", title: "Beamter/Beamtin auf Widerruf", subtitle: "Vorbereitungsdienst" },
     { min: 20, icon: "🎓", title: "Beamter/Beamtin auf Probe" },
     { min: 40, icon: "✅", title: "Beamter/Beamtin auf Lebenszeit" },
     { min: 60, icon: "📘", title: "Studienrat/Studienrätin", subtitle: "A13" },
@@ -64,18 +69,21 @@
     { min: 100, icon: "⭐", title: "Ministerialrat/-rätin", subtitle: "Kultusministerium" }
   ];
 
-  function getRankInfo(pct) {
-    var current = RANKS[0];
+  function getRankInfo(rawPct) {
+    if (rawPct <= 0) {
+      return { current: RANKS[0], next: RANKS[1], neverPlayed: true };
+    }
+    var current = RANKS[1];
     var next = null;
-    for (var i = 0; i < RANKS.length; i++) {
-      if (pct >= RANKS[i].min) current = RANKS[i];
+    for (var i = 1; i < RANKS.length; i++) {
+      if (rawPct >= RANKS[i].min) current = RANKS[i];
       else { next = RANKS[i]; break; }
     }
-    return { current: current, next: next };
+    return { current: current, next: next, neverPlayed: false };
   }
 
-  function renderRank(pct) {
-    var info = getRankInfo(pct);
+  function renderRank(rawPct) {
+    var info = getRankInfo(rawPct);
     var iconEl = document.getElementById("dashboard-rank-icon");
     var titleEl = document.getElementById("dashboard-rank-title");
     var barEl = document.getElementById("dashboard-rank-bar");
@@ -85,18 +93,25 @@
     iconEl.textContent = info.current.icon;
     titleEl.textContent = info.current.title + (info.current.subtitle ? " (" + info.current.subtitle + ")" : "");
 
-    if (info.next) {
+    if (info.neverPlayed) {
+      barEl.style.width = "0%";
+      nextEl.textContent = "Starte mit dem Üben, um deinen ersten Rang zu erreichen!";
+    } else if (info.next) {
       var span = info.next.min - info.current.min;
-      var progress = span > 0 ? Math.min(100, Math.max(0, ((pct - info.current.min) / span) * 100)) : 100;
+      var progress = span > 0 ? Math.min(100, Math.max(0, ((rawPct - info.current.min) / span) * 100)) : 100;
       barEl.style.width = progress + "%";
-      nextEl.textContent = "Noch " + (info.next.min - pct) + " % bis " + info.next.icon + " " + info.next.title;
+      var remaining = Math.max(1, Math.ceil(info.next.min - rawPct));
+      nextEl.textContent = "Noch " + remaining + " % bis " + info.next.icon + " " + info.next.title;
     } else {
       barEl.style.width = "100%";
       nextEl.textContent = "Höchster Rang erreicht! 🎉";
     }
   }
 
-  function computeOverallPercent(chapters, statsCache) {
+  // Liefert sowohl den ungerundeten Rohwert (für die Rang-Schwellen, damit auch
+  // winzige Fortschritte sofort den Rang wechseln) als auch den gerundeten Wert
+  // (für die grobe %-Anzeige).
+  function computeOverallStats(chapters, statsCache) {
     var sum = 0, total = 0;
     chapters.forEach(function (c) {
       MODES.forEach(function (m) {
@@ -108,7 +123,8 @@
         total++;
       });
     });
-    return total > 0 ? Math.round((sum / total) * 100) : 0;
+    var raw = total > 0 ? (sum / total) * 100 : 0;
+    return { raw: raw, rounded: Math.round(raw) };
   }
 
   function statusTitle(modeKey, result) {
@@ -177,10 +193,10 @@
         : "Bereits begonnen: " + startedChapters + " von " + chapters.length + " Kapiteln.";
     }
 
-    var overallPct = computeOverallPercent(chapters, statsCache);
+    var overall = computeOverallStats(chapters, statsCache);
     var overallEl = document.getElementById("dashboard-overall-pct");
-    if (overallEl) overallEl.textContent = overallPct + " %";
-    renderRank(overallPct);
+    if (overallEl) overallEl.textContent = overall.rounded + " %";
+    renderRank(overall.raw);
   }
 
   // ---------------------------------------------------------------------
