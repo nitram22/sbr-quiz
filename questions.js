@@ -525,6 +525,54 @@ window.QUESTIONS = [
     options: ["Nein, körperliche Einwirkung ist nur ausnahmsweise zur Gefahrenabwehr oder Notwehr zulässig", "Ja, im Rahmen des pädagogischen Ermessens generell erlaubt", "Ja, wenn die Eltern schriftlich zustimmen", "Ja, aber nur bei wiederholtem Fehlverhalten"],
     explanation: "Körperliche Züchtigung ist grundsätzlich verboten."
   },
+  {
+    id: "sr-1.11-11", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Ab welchem Umfang des Nachsitzens ist nicht mehr die Klassenlehrkraft, sondern der/die Schulleiter*in zuständig?",
+    options: ["Ab Nachsitzen von 3 Unterrichtsstunden", "Ab Nachsitzen von 1 Unterrichtsstunde", "Ab Nachsitzen von 5 Unterrichtsstunden", "Die Klassenlehrkraft bleibt bei jeder Dauer zuständig"],
+    explanation: "Klassenlehrer*in, unterrichtende Lehrkraft und Schulleiter*in dürfen Nachsitzen bis zu 2 Unterrichtsstunden anordnen; ab 3 Stunden sowie für alle weiteren Maßnahmen ist ausschließlich der/die Schulleiter*in zuständig."
+  },
+  {
+    id: "sr-1.11-12", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Müssen beim Nachsitzen auch die Erziehungsberechtigten angehört werden?",
+    options: ["Nein, beim Nachsitzen ist nur die Anhörung des Schülers vorgeschrieben", "Ja, immer zusätzlich zum Schüler", "Nein, beim Nachsitzen entfällt jede Anhörungspflicht", "Nur wenn der Schüler unter 10 Jahre alt ist"],
+    explanation: "Die Erziehungsberechtigten sind erst ab einer Überweisung in die Parallelklasse oder schwerwiegenderen Maßnahmen anzuhören; der Schüler selbst muss dagegen immer angehört werden."
+  },
+  {
+    id: "sr-1.11-13", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Wann ist die Klassen- oder Jahrgangsstufenkonferenz vor einer § 90-Maßnahme anzuhören?",
+    options: ["Bei Unterrichtsausschluss von mehr als 5 Tagen, Androhung des Schulausschlusses und beim Schulausschluss", "Bei jeder Erziehungs- und Ordnungsmaßnahme, auch beim Nachsitzen", "Niemals, das ist allein Sache des Schulleiters", "Nur wenn die Eltern dies ausdrücklich beantragen"],
+    explanation: "Auch nach Anhörung der Konferenz bleibt allein der/die Schulleiter*in zuständig und muss selbst entscheiden – das muss im Bescheid deutlich werden."
+  },
+  {
+    id: "sr-1.11-14", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Wann muss die Schulkonferenz vor einem Schulausschluss beteiligt werden?",
+    options: ["Nur auf Wunsch des Schülers bzw. (bei Minderjährigen) der Erziehungsberechtigten – auf dieses Antragsrecht ist hinzuweisen", "Immer verpflichtend bei jedem Schulausschluss", "Nie, die Schulkonferenz ist bei § 90-Maßnahmen nicht vorgesehen", "Nur beim zeitweiligen Unterrichtsausschluss"],
+    explanation: "Anders als bei der Klassen-/Jahrgangsstufenkonferenz ist die Beteiligung der Schulkonferenz beim Schulausschluss vom Antrag des Schülers bzw. der Erziehungsberechtigten abhängig."
+  },
+  {
+    id: "sr-1.11-15", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Was muss die Begründung eines § 90-Bescheids inhaltlich leisten?",
+    options: ["Eine genaue Sachverhaltsdarstellung mit zeitlicher/örtlicher Eingrenzung sowie die pädagogische Ermessensausübung erkennen lassen", "Nur die Rechtsgrundlage § 90 SchG nennen", "Lediglich die Unterschrift des Schulleiters enthalten", "Keine besonderen Anforderungen, eine mündliche Mitteilung genügt immer"],
+    explanation: "Der Bescheid muss u.a. die unmittelbar Beteiligten benennen und begründen, warum gerade diese Maßnahme (und keine mildere) gewählt wurde."
+  },
+  {
+    id: "sr-1.11-16", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Wann ist ein Schulausschluss nach § 90 Abs. 6 SchG möglich, auch ohne dass eine Gefahr für die Mitschüler droht?",
+    options: ["Wenn Mitschülern der weitere gemeinsame Schulbesuch oder der Lehrkraft das Unterrichten wegen der Schwere der Beeinträchtigung nicht mehr zumutbar ist", "Bei jedem einmaligen Fehlverhalten", "Nur nach vorheriger Zustimmung aller Eltern der Klasse", "Nur bei strafrechtlicher Verurteilung des Schülers"],
+    explanation: "Das ist die erste der zwei gesetzlichen Alternativen für den Schulausschluss (§ 90 Abs. 6 Satz 2 SchG); die zweite verlangt zusätzlich eine Gefahr für Erziehung, Unterrichtung, sittliche Entwicklung, Gesundheit oder Sicherheit der Mitschüler."
+  },
+  {
+    id: "sr-1.11-17", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Muss die Schule einen zeitweiligen Unterrichtsausschluss dem Jugendamt melden?",
+    options: ["Nein, das kann gemeldet werden (\"kann\"); ein Schulausschluss dagegen muss gemeldet werden (\"muss\")", "Ja, jeder Unterrichtsausschluss muss zwingend gemeldet werden", "Nein, eine Meldung an das Jugendamt ist bei § 90-Maßnahmen generell ausgeschlossen", "Nur bei volljährigen Schülern"],
+    explanation: "Abstufung: zeitweiliger Unterrichtsausschluss \"kann\" gemeldet werden, mehrfacher zeitweiliger Unterrichtsausschluss \"soll\" gemeldet werden, ein Schulausschluss \"muss\" dem Jugendamt mitgeteilt werden."
+  },
+  {
+    id: "sr-1.11-18", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Darf die aufnehmende Schule nach einem Schulausschluss Bedingungen an die Aufnahme knüpfen?",
+    options: ["Ja, sie kann die Aufnahme von einer Vereinbarung über eine Verhaltensänderung abhängig machen und eine Probezeit bis zu 6 Monaten festlegen", "Nein, die Aufnahme muss immer bedingungslos erfolgen", "Ja, aber nur eine Probezeit von maximal 4 Wochen ist zulässig", "Nein, ein Schüler nach Schulausschluss darf an keiner anderen Schule mehr aufgenommen werden"],
+    explanation: "Rechtsgrundlage: § 90 Abs. 4 Satz 2 SchG."
+  },
 
   // ===================== 1.12 Aufsichtspflicht =====================
   {
@@ -575,6 +623,78 @@ window.QUESTIONS = [
     options: ["Nein, generell keine Aufsichtspflicht, außer bei schulischen Ganztagsangeboten", "Ja, immer uneingeschränkt", "Nur an Grundschulen", "Nur wenn Eltern dies schriftlich beantragen"],
     explanation: "Liegen z.B. Mensa oder andere Ganztagsangebote vor, besteht auch in der Mittagspause Aufsichtspflicht."
   },
+  {
+    id: "sr-1.12-09", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Warum besteht überhaupt eine Aufsichtspflicht der Schule?",
+    options: ["Die Schule nimmt die Kinder mit ihrem eigenständigen Erziehungsauftrag aus dem Schutz- und Fürsorgebereich der Eltern und tritt in deren Fürsorgepflicht ein", "Weil das BGB dies ausdrücklich für Schulen anordnet", "Weil sonst die Schülerunfallversicherung nicht greifen würde", "Weil die Eltern während der Schulzeit rechtlich nicht aufsichtsfähig sind"],
+    explanation: "Der elternunabhängige Erziehungs- und Bildungsauftrag macht es den Eltern während der Schulzeit faktisch unmöglich, ihre Kinder selbst zu beaufsichtigen – die Schule tritt an ihre Stelle."
+  },
+  {
+    id: "sr-1.12-10", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Muss die Aufsicht immer als Präsenzaufsicht ausgeübt werden?",
+    options: ["Nein, es kann je nach Umständen genügen, dass eine Lehrkraft erreichbar ist und sich auf Stichproben beschränkt", "Ja, eine Lehrkraft muss die Schüler immer ununterbrochen persönlich im Blick behalten", "Nein, Aufsicht kann komplett auf die Schüler selbst übertragen werden", "Ja, das schreibt eine allgemeine Verwaltungsvorschrift des Kultusministeriums zwingend vor"],
+    explanation: "Das Kultusministerium hat bewusst auf eine allgemeine Regelung zur Aufsichtsintensität verzichtet – die vor Ort Verantwortlichen (i.d.R. die Schulleitung) legen sie je nach Umständen fest."
+  },
+  {
+    id: "sr-1.12-11", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Wer ist für die Aufstellung der Aufsichtspläne zuständig?",
+    options: ["Der/die Schulleiter*in (§ 41 SchG)", "Der Elternbeirat", "Jede Lehrkraft für ihre eigenen Stunden selbst", "Das staatliche Schulamt"],
+    explanation: "In der Praxis gibt es dafür eingespielte Regelungen, z.B. wer an welchem Tag in welcher großen Pause Aufsicht führt."
+  },
+  {
+    id: "sr-1.12-12", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Kann eine Schulbushaltestelle unter die Aufsichtspflicht der Schule fallen, obwohl der Schulweg selbst nicht aufsichtspflichtig ist?",
+    options: ["Ja, wenn die Haltestelle gezielt für den von der Schule ausgelösten Ziel- und Quellverkehr eingerichtet ist, gehört sie zum Schulbetrieb", "Nein, jede Haltestelle zählt ausnahmslos zum privaten Schulweg", "Nur wenn sich die Haltestelle direkt auf dem Schulgelände befindet", "Nein, für Haltestellen gilt eine gesonderte gesetzliche Ausnahme"],
+    explanation: "Entscheidend ist laut Rechtsprechung, ob die Haltestelle gezielt dem Schulbetrieb dient – nicht, ob dazwischen noch ein Grundstück liegt oder auch Nichtschüler mitfahren."
+  },
+  {
+    id: "sr-1.12-13", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Kann ein Schüler auf dem Schulweg trotz fehlender Aufsichtspflicht dort Ziel von Erziehungs- und Ordnungsmaßnahmen wegen des Verhaltens anderer werden?",
+    options: ["Ja, bei \"schulbezogenem\" Fehlverhalten, das konkret feststellbar störend in den Schulbetrieb hineinwirkt (z.B. wenn ein Mitschüler den Schulweg nicht mehr angstfrei gehen kann)", "Nein, außerhalb des Schulgeländes ist die Schule rechtlich nie zuständig", "Nein, dafür ist ausschließlich die Polizei zuständig", "Ja, aber nur wenn die Tat auf dem direkten Schulgelände begangen wurde"],
+    explanation: "Der Begriff \"schulbezogenes Fehlverhalten\" stammt aus der Rechtsprechung des VGH Mannheim und ist nicht nur räumlich-zeitlich, sondern auch inhaltlich bestimmt."
+  },
+  {
+    id: "sr-1.12-14", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Was passiert mit der Aufsichtspflicht und dem Unfallversicherungsschutz, wenn Schüler in einer Hohlstunde erlaubt das Schulgelände verlassen?",
+    options: ["Die Aufsichtspflicht ruht und auch der gesetzliche Unfallversicherungsschutz entfällt in dieser Zeit", "Beide bleiben unverändert vollständig bestehen", "Die Aufsichtspflicht bleibt bestehen, nur der Versicherungsschutz entfällt", "Der Versicherungsschutz bleibt bestehen, nur die Aufsichtspflicht entfällt"],
+    explanation: "Solange sich die Schüler in der näheren Umgebung des Schulbereichs aufhalten, bleibt der Unfallversicherungsschutz aber auch bei (unerlaubtem) Verlassen des Geländes bestehen – Ausnahme: private Einkäufe ohne Bezug zum Unterricht."
+  },
+  {
+    id: "sr-1.12-15", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Dürfen Hilfspersonen wie Hausmeister oder ältere Schüler zur Unterstützung der Aufsicht eingesetzt werden?",
+    options: ["Ja, aber die Aufsicht ist damit nicht vollständig delegiert – ein verantwortlicher, erreichbarer Lehrer muss die Aufsichtsführung weiterhin kontrollieren können", "Nein, Aufsicht darf ausschließlich von Lehrkräften ausgeübt werden", "Ja, damit ist die Lehrkraft vollständig von der Aufsichtspflicht befreit", "Nein, das widerspricht grundsätzlich dem Schulgesetz"],
+    explanation: "Die Schule trägt die Verantwortung für die Auswahl geeigneter Hilfspersonen; Schüler können bei den verantwortlichen Lehrkräften jederzeit remonstrieren."
+  },
+  {
+    id: "sr-1.12-16", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Wie hat der Verwaltungsgerichtshof BW die Aufsichtspflicht in der Mittagspause bei Fahrschülern beurteilt, die wegen fehlender Busverbindung nicht nach Hause können?",
+    options: ["Die Mittagspause ist in diesem Fall dem Verantwortungsbereich der Schule zuzurechnen, sodass Aufsichtspflicht besteht", "Es besteht generell keinerlei Aufsichtspflicht in der Mittagspause", "Nur der Schulträger, nicht die Lehrkräfte, ist in der Mittagspause zuständig", "Fahrschüler sind während der Mittagspause grundsätzlich nicht schutzbedürftig"],
+    explanation: "Grundsatzentscheidung des VGH BW (1984): Die durch den Stundenplan veranlasste Mittagspause ist bei Schülern, die das Schulgelände nicht verlassen dürfen, eine aufsichtspflichtige Unterrichtspause."
+  },
+  {
+    id: "sr-1.12-17", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Ist die \"Mitbeaufsichtigung\" einer Klasse durch eine im Nachbarraum unterrichtende Lehrkraft unproblematisch?",
+    options: ["Nein, solche Notlösungen bergen Risiken und sollten nach Möglichkeit vermieden werden – Stichproben sind notwendig", "Ja, das ist rechtlich völlig unbedenklich und beliebig einsetzbar", "Nein, eine Mitbeaufsichtigung ist immer strikt verboten", "Ja, solange der Klassensprecher informiert ist"],
+    explanation: "Ein älteres BGH-Urteil sah in einem solchen Fall eine Aufsichtspflichtverletzung; nach heutiger Auffassung ist es eine Frage der im Einzelfall vertretbaren Aufsichtsintensität."
+  },
+  {
+    id: "sr-1.12-18", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Wie viele Kinder soll eine Gruppe bei der schulischen Radfahrausbildung im öffentlichen Verkehrsraum höchstens umfassen, und wie viele Erwachsene sind mindestens nötig?",
+    options: ["Höchstens 10 Kinder, mindestens 2 Erwachsene (davon 1 Lehrer oder Polizeibeamter)", "Höchstens 30 Kinder, 1 Erwachsener genügt", "Höchstens 5 Kinder, mindestens 3 Erwachsene", "Es gibt keine Vorgabe zur Gruppengröße"],
+    explanation: "Vorgabe der Gemeinsamen Verwaltungsvorschrift von Innen- und Kultusministerium zur Radfahrausbildung."
+  },
+  {
+    id: "sr-1.12-19", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Können SMV-Veranstaltungen auch ohne Präsenzaufsicht durch eine Lehrkraft stattfinden?",
+    options: ["Ja, der Schulleiter kann geeignete, mindestens 16 Jahre alte Schüler mit der Aufsicht betrauen, wenn deren Erziehungsberechtigte einverstanden sind", "Nein, bei SMV-Veranstaltungen ist immer eine Lehrkraft persönlich anwesend zu halten", "Ja, das entscheidet die SMV vollständig autonom ohne jede Beteiligung der Schulleitung", "Nein, SMV-Veranstaltungen benötigen immer mindestens zwei Lehrkräfte"],
+    explanation: "Ist die Art der Veranstaltung jedoch mit erhöhten Gefahren verbunden (z.B. Mittelstufenparty mit Alkoholrisiko), ist die Aufsichtsführung durch eine Lehrkraft erforderlich (§ 14 SMV-VO)."
+  },
+  {
+    id: "sr-1.12-20", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
+    question: "Wie wird die Aufsicht bei Berufspraktika der Schüler sichergestellt, obwohl keine Präsenzaufsicht möglich ist?",
+    options: ["Durch Auswahl seriöser Praktikumsstellen, Erreichbarkeit einer Lehrkraft, Betriebsbesuche/Stichproben und Einbindung des Praktikumspersonals als Hilfspersonen", "Die Aufsichtspflicht der Schule entfällt während Praktika vollständig", "Nur durch tägliche persönliche Anwesenheit einer Lehrkraft im Betrieb", "Die Eltern müssen während des gesamten Praktikums selbst anwesend sein"],
+    explanation: "Diese Lösung ist mit der Unfallkasse abgestimmt, sodass der gesetzliche Schülerunfallversicherungsschutz sichergestellt bleibt."
+  },
 
   // ===================== 1.13 Außerunterrichtliche Veranstaltungen (AUV) =====================
   {
@@ -618,6 +738,24 @@ window.QUESTIONS = [
     question: "Sind Schüler*innen bei AUV wie z.B. Klassenfahrten gesetzlich unfallversichert?",
     options: ["Ja, immer", "Nur bei kostenpflichtigen AUV", "Nein, dafür ist eine private Zusatzversicherung nötig", "Nur bei Auslandsfahrten"],
     explanation: "Auch bei selbstorganisierten Aufgaben außerhalb der Schule (z.B. Projektarbeit) haftet die gesetzliche Unfallkasse."
+  },
+  {
+    id: "sr-1.13-08", part: "Schulrecht", chapter: "1.13 Außerunterrichtliche Veranstaltungen (AUV)",
+    question: "Reicht eine schriftliche Elternbestätigung der Schwimmfähigkeit aus, um einen Schüler am Schwimmunterricht teilnehmen zu lassen?",
+    options: ["Nein, die Lehrkraft muss sich zusätzlich durch persönlichen Augenschein von der Schwimmfähigkeit überzeugen", "Ja, eine Elternbestätigung allein genügt immer", "Nein, dafür ist ausschließlich ein ärztliches Attest ausreichend", "Ja, sofern der Schüler älter als 10 Jahre ist"],
+    explanation: "Grundlage der Verantwortung ist die Obhutspflicht und Garantenstellung der leitenden Lehrkraft, die auch für Aufenthalte am/im Wasser bei AUV gilt."
+  },
+  {
+    id: "sr-1.13-09", part: "Schulrecht", chapter: "1.13 Außerunterrichtliche Veranstaltungen (AUV)",
+    question: "Wann besteht laut Regierungspräsidium Stuttgart ein reiserechtlich triftiger Grund, eine AUV wegen einer Gefahrenlage abzusagen?",
+    options: ["Grundsätzlich erst, wenn das Auswärtige Amt eine amtliche Reisewarnung für das Zielgebiet ausgesprochen hat", "Bereits bei jeder Medienberichterstattung über Unruhen im Zielgebiet", "Sobald ein einzelnes Elternteil Bedenken äußert", "Nie, eine AUV darf grundsätzlich nicht abgesagt werden"],
+    explanation: "Ohne amtliche Reisewarnung tragen Eltern bzw. volljährige Schüler, die dennoch selbst absagen, die entstehenden Stornierungskosten grundsätzlich selbst."
+  },
+  {
+    id: "sr-1.13-10", part: "Schulrecht", chapter: "1.13 Außerunterrichtliche Veranstaltungen (AUV)",
+    question: "Darf die Schule die gesamte AUV eigenständig absagen, wenn sie eine Gefahrenlage befürchtet, ohne dass eine amtliche Reisewarnung vorliegt?",
+    options: ["Nur in besonders begründeten Ausnahmefällen und nur nach vorheriger Abstimmung mit dem Regierungspräsidium", "Ja, das liegt im freien Ermessen jeder einzelnen Schule", "Nein, eine Absage durch die Schule ist unter keinen Umständen möglich", "Ja, das entscheidet allein die Klassenkonferenz"],
+    explanation: "Regelung des Regierungspräsidiums Stuttgart zur Absage außerunterrichtlicher Veranstaltungen wegen Gefahrenlagen (Stand 2017)."
   },
 
   // ===================== 1.14 Schulbezogenes Jugendrecht =====================
@@ -988,6 +1126,42 @@ window.QUESTIONS = [
     question: "Über welchen Weg muss eine Beschwerde eines Beamten grundsätzlich eingereicht werden?",
     options: ["Über den Dienstweg, beginnend mit der Schulleitung", "Direkt beim Kultusministerium, unter Umgehung der Schulleitung", "Direkt bei Gericht ohne vorheriges Verfahren", "Über den Personalrat als einzige zulässige Stelle"],
     explanation: "Das Beschwerderecht ist eines der Schutzrechte der Beamten."
+  },
+  {
+    id: "br-2.6-13", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
+    question: "In welchem Gesetz ist das Verbot der Annahme von Belohnungen und Geschenken für Beamte geregelt?",
+    options: ["§ 42 Beamtenstatusgesetz", "§ 90 SchG", "Im Landesbeamtengesetz gar nicht mehr geregelt", "Ausschließlich im TV-L"],
+    explanation: "Für Tarifbeschäftigte gilt die vergleichbare Regelung des § 3 Abs. 3 TV-L; früher war dies in § 89 LBG-alt geregelt."
+  },
+  {
+    id: "br-2.6-14", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
+    question: "Wer entscheidet an der Schule über die ausnahmsweise Zustimmung zur Annahme eines Geschenks?",
+    options: ["Der/die Schulleiter*in", "Das Regierungspräsidium", "Der Elternbeirat", "Die Gesamtlehrerkonferenz"],
+    explanation: "Zuständigkeit nach § 7 Abs. 1 Nr. 4 KMZuVO; die Entscheidung sollte stets schriftlich getroffen werden."
+  },
+  {
+    id: "br-2.6-15", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
+    question: "Dürfen Lehrkräfte finanzielle oder sachliche Zuwendungen von Schulfotografen als Ausgleich für den Organisationsaufwand der Schulfotoaktion annehmen?",
+    options: ["Nein, das ist laut BGH-Rechtsprechung unzulässig – unabhängig davon, ob die Zuwendung an Einzelpersonen, die Schule oder eine Klassenkasse geht", "Ja, solange die Zuwendung der Klassenkasse zugutekommt", "Ja, wenn die Schulleitung informiert wird", "Ja, bis zu einem Wert von 50 Euro pro Klasse"],
+    explanation: "BGH, Urteil vom 26.5.2011 – 3 StR 492/10."
+  },
+  {
+    id: "br-2.6-16", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
+    question: "Können Geschenke von Schülerinnen und Schülern mit überwiegend ideellem Wert (z.B. selbstgebastelte Gegenstände) angenommen werden?",
+    options: ["Ja, solche Geschenke sind unproblematisch zulässig", "Nein, jedes Geschenk von Schülern ist untersagt", "Nur mit vorheriger schriftlicher Genehmigung des Kultusministeriums", "Nur wenn der Wert unter 1 Euro liegt"],
+    explanation: "Im Unterschied dazu ist bei Geschenken von Einzelpersonen (z.B. Eltern) ein sehr strenger Maßstab anzulegen (Wertgrenze ca. 5 Euro bei Anlässen wie Geburtstag)."
+  },
+  {
+    id: "br-2.6-17", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
+    question: "Welche Strafe droht einem Beamten bei strafbarer \"Vorteilsannahme\" nach § 331 StGB?",
+    options: ["Freiheitsstrafe bis zu 3 Jahren oder Geldstrafe", "Ausschließlich eine Geldbuße von maximal 500 Euro", "Automatisch die Entfernung aus dem Beamtenverhältnis ohne Gerichtsverfahren", "Es drohen keine strafrechtlichen Konsequenzen, nur disziplinarrechtliche"],
+    explanation: "Bei \"Bestechlichkeit\" (§ 332 StGB, wenn die Diensthandlung selbst pflichtwidrig ist) drohen bis zu 5 Jahre, in besonders schweren Fällen bis zu 10 Jahre Freiheitsstrafe."
+  },
+  {
+    id: "br-2.6-18", part: "Beamtenrecht", chapter: "2.6 Pflichten und Rechte der Beamten",
+    question: "Was muss ein Beamter tun, wenn versucht wird, seine Amtsführung durch das Angebot von Geschenken zu beeinflussen?",
+    options: ["Er muss seinen Dienstvorgesetzten unverzüglich darüber unterrichten", "Er darf das Geschenk annehmen, solange er es nicht meldet", "Er muss unmittelbar Strafanzeige bei der Polizei stellen, eine interne Meldung genügt nicht", "Er muss nur reagieren, wenn der Wert 100 Euro übersteigt"],
+    explanation: "Diese Meldepflicht ergibt sich aus der Verwaltungsvorschrift zu § 89 LBG-alt, die weiterhin sinngemäß angewendet wird."
   },
 
   // ===================== 2.7 Personalvertretung =====================

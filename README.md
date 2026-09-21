@@ -10,12 +10,12 @@ komplett im Browser.
 ## Funktionen
 
 **📝 Quiz-Modus**
-- ~176 Multiple-Choice-Fragen aus allen Kapiteln (1.1–1.15 Schulrecht, 2.1–2.9 Beamtenrecht)
+- ~205 Multiple-Choice-Fragen aus allen Kapiteln (1.1–1.15 Schulrecht, 2.1–2.9 Beamtenrecht)
 - Kapitel-Filter, zufällige Reihenfolge von Fragen und Antwortoptionen
 - Sofortiges Feedback inkl. Erklärung, Liste der falsch beantworteten Fragen am Ende
 
 **🗂️ Karteikarten-Modus**
-- ~138 Karten (Begriff/Frage → Antwort) aus allen Kapiteln
+- ~166 Karten (Begriff/Frage → Antwort) aus allen Kapiteln
 - Umdrehen + Selbsteinschätzung „Kann ich" / „Nochmal"
 - „Nochmal"-Karten werden am Ende der Runde zur Wiederholung angeboten
 
