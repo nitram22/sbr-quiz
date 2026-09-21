@@ -60,6 +60,12 @@
 
       <div class="card dashboard-card">
         <h2>📊 Dein Fortschritt</h2>
+
+        <div class="dash-overall">
+          <span id="dashboard-overall-pct" class="dash-overall-pct">0 %</span>
+          <span class="dash-overall-label">Gesamtfortschritt<br>über alle Modi &amp; Kapitel</span>
+        </div>
+
         <p id="dashboard-summary" class="hint"></p>
         <div class="dash-legend">
           <span><span class="dash-dot dash-dot-new"></span> noch nicht geübt</span>
@@ -68,6 +74,10 @@
           <span><span class="dash-dot dash-dot-high"></span> ≥ 75 %</span>
         </div>
         <div id="dashboard-chapters" class="dash-chapters"></div>
+
+        <button type="button" id="dashboard-btn-reset-all" class="btn btn-danger btn-small dash-reset-btn">
+          Gesamte Statistik zurücksetzen (alle Modi)
+        </button>
       </div>
     </div>
 

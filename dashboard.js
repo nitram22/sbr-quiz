@@ -50,6 +50,21 @@
     return { status: status, coverage: coverage, accuracy: accuracy };
   }
 
+  function computeOverallPercent(chapters, statsCache) {
+    var sum = 0, total = 0;
+    chapters.forEach(function (c) {
+      MODES.forEach(function (m) {
+        var items = m.dataArray().filter(function (it) { return it.chapter === c.chapter; });
+        if (items.length === 0) return; // Modus hat keine Inhalte für dieses Kapitel -> zählt nicht mit
+        var result = computeMastery(items, statsCache[m.key]);
+        var value = result.status === "new" ? 0 : (result.coverage * result.accuracy);
+        sum += value;
+        total++;
+      });
+    });
+    return total > 0 ? Math.round((sum / total) * 100) : 0;
+  }
+
   function statusTitle(modeKey, result) {
     if (result.status === "unavailable") return modeKey + ": keine Inhalte für dieses Kapitel";
     if (result.status === "new") return modeKey + ": noch nicht geübt";
@@ -115,8 +130,44 @@
         ? "Noch keine Statistik vorhanden – starte mit einem der Modi oben!"
         : "Bereits begonnen: " + startedChapters + " von " + chapters.length + " Kapiteln.";
     }
+
+    var overallEl = document.getElementById("dashboard-overall-pct");
+    if (overallEl) overallEl.textContent = computeOverallPercent(chapters, statsCache) + " %";
+  }
+
+  // ---------------------------------------------------------------------
+  // Gesamte Statistik aller Modi zurücksetzen
+  // ---------------------------------------------------------------------
+  function resetAllStats() {
+    if (!window.confirm("Wirklich die GESAMTE Statistik aus allen Modi (Quiz, Karteikarten, Fallbeispiele, Mündliche Prüfung) löschen? Das kann nicht rückgängig gemacht werden.")) {
+      return;
+    }
+    MODES.forEach(function (m) {
+      try {
+        window.localStorage.setItem(m.storageKey, "{}");
+      } catch (e) {
+        /* ignore */
+      }
+    });
+
+    // Falls die Statistik-Anzeige eines Modus bereits im Speicher gerendert wurde
+    // (z.B. beim ersten Laden der Seite), muss sie explizit aktualisiert werden -
+    // ein Moduswechsel über die Tab-Leiste rendert die Startscreens sonst nicht neu.
+    ["refreshQuizStats", "refreshFlashcardStats", "refreshCaseStats", "refreshOralStats"].forEach(function (fnName) {
+      if (typeof window[fnName] === "function") window[fnName]();
+    });
+
+    renderDashboard();
+  }
+
+  function init() {
+    var btn = document.getElementById("dashboard-btn-reset-all");
+    if (btn) btn.addEventListener("click", resetAllStats);
   }
 
   window.renderDashboard = renderDashboard;
-  document.addEventListener("DOMContentLoaded", renderDashboard);
+  document.addEventListener("DOMContentLoaded", function () {
+    renderDashboard();
+    init();
+  });
 })();

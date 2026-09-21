@@ -421,5 +421,7 @@
     });
   }
 
+  window.refreshCaseStats = renderStatsSummary;
+
   document.addEventListener("DOMContentLoaded", init);
 })();

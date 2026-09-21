@@ -451,5 +451,7 @@
     });
   }
 
+  window.refreshOralStats = renderStatsSummary;
+
   document.addEventListener("DOMContentLoaded", init);
 })();

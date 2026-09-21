@@ -382,5 +382,7 @@
     });
   }
 
+  window.refreshFlashcardStats = renderStatsSummary;
+
   document.addEventListener("DOMContentLoaded", init);
 })();

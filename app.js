@@ -438,5 +438,7 @@
     });
   }
 
+  window.refreshQuizStats = renderStatsSummary;
+
   document.addEventListener("DOMContentLoaded", init);
 })();
