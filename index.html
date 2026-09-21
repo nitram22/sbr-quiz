@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBR-Quiz – Schul- &amp; Beamtenrecht</title>
+<meta name="description" content="Quiz zur Prüfungsvorbereitung in Schul- und Beamtenrecht (Baden-Württemberg)">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="app-header">
+    <h1>⚖️ SBR-Quiz</h1>
+    <p class="subtitle">Prüfungsvorbereitung Schul- &amp; Beamtenrecht (BW)</p>
+  </header>
+
+  <main>
+
+    <!-- ============ START SCREEN ============ -->
+    <section id="screen-start" class="screen">
+
+      <div class="card">
+        <h2>Kapitel auswählen</h2>
+        <div class="chapter-toolbar">
+          <button type="button" id="btn-select-all" class="btn btn-small">Alle auswählen</button>
+          <button type="button" id="btn-select-none" class="btn btn-small">Alle abwählen</button>
+        </div>
+
+        <div id="chapter-groups"></div>
+      </div>
+
+      <div class="card">
+        <h2>Anzahl Fragen</h2>
+        <div id="count-options" class="pill-group"></div>
+      </div>
+
+      <div class="card summary-card">
+        <p><strong id="available-count">0</strong> Fragen passend zur Auswahl verfügbar.</p>
+        <button type="button" id="btn-start" class="btn btn-primary btn-large">Quiz starten</button>
+        <button type="button" id="btn-weak" class="btn btn-secondary btn-large" disabled>
+          Schwache Fragen üben (aus Statistik)
+        </button>
+        <p id="weak-hint" class="hint">Beantworte erst ein paar Fragen, damit diese Funktion Daten hat.</p>
+      </div>
+
+      <div class="card stats-card">
+        <h2>Deine Statistik</h2>
+        <div id="stats-summary"></div>
+        <button type="button" id="btn-reset-stats" class="btn btn-danger btn-small">Statistik zurücksetzen</button>
+      </div>
+
+    </section>
+
+    <!-- ============ QUIZ SCREEN ============ -->
+    <section id="screen-quiz" class="screen hidden">
+      <div class="quiz-progress">
+        <div class="progress-track">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div class="progress-text">
+          <span id="progress-label">Frage 1 von 10</span>
+          <span id="score-label">Richtig: 0</span>
+        </div>
+      </div>
+
+      <div class="card question-card">
+        <p id="question-chapter" class="chapter-tag"></p>
+        <h2 id="question-text"></h2>
+        <div id="options-list" class="options-list"></div>
+        <div id="explanation-box" class="explanation-box hidden"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <button type="button" id="btn-quit" class="btn btn-secondary">Abbrechen</button>
+        <button type="button" id="btn-next" class="btn btn-primary" disabled>Weiter</button>
+      </div>
+    </section>
+
+    <!-- ============ RESULT SCREEN ============ -->
+    <section id="screen-result" class="screen hidden">
+      <div class="card result-card">
+        <h2>Ergebnis</h2>
+        <p id="result-score" class="result-score"></p>
+        <div id="result-bar-track" class="progress-track">
+          <div id="result-bar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Falsch beantwortete Fragen</h2>
+        <div id="wrong-list" class="wrong-list"></div>
+        <p id="no-wrong" class="hint hidden">Alles richtig beantwortet – stark! 🎉</p>
+      </div>
+
+      <div class="result-actions">
+        <button type="button" id="btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
+        <button type="button" id="btn-retry-wrong" class="btn btn-secondary btn-large">Nur Fehler wiederholen</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Fragen basieren auf der Zusammenfassung „Leitfaden Repetitorium 2025" – kein Ersatz für die Originalquellen/Gesetzestexte.</p>
+  </footer>
+
+</div>
+
+<script src="questions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
