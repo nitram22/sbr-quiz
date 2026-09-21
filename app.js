@@ -25,11 +25,19 @@
     }
   }
 
+  var MASTERY_STREAK = 3; // so oft in Folge richtig, bis eine Frage als "gemeistert" gilt
+
   function recordAnswer(questionId, isCorrect) {
     var stats = loadStats();
-    if (!stats[questionId]) stats[questionId] = { correct: 0, wrong: 0 };
-    if (isCorrect) stats[questionId].correct++;
-    else stats[questionId].wrong++;
+    if (!stats[questionId]) stats[questionId] = { correct: 0, wrong: 0, streak: 0 };
+    var s = stats[questionId];
+    if (isCorrect) {
+      s.correct++;
+      s.streak = (s.streak || 0) + 1;
+    } else {
+      s.wrong++;
+      s.streak = 0;
+    }
     saveStats(stats);
   }
 
@@ -40,11 +48,10 @@
       var s = stats[q.id];
       if (!s) return;
       var attempts = s.correct + s.wrong;
-      if (attempts === 0) return;
+      if (attempts === 0 || s.wrong === 0) return;
+      if ((s.streak || 0) >= MASTERY_STREAK) return; // 3x in Folge richtig -> gilt als gemeistert
       var wrongRatio = s.wrong / attempts;
-      if (wrongRatio > 0) {
-        scored.push({ q: q, wrongRatio: wrongRatio, attempts: attempts });
-      }
+      scored.push({ q: q, wrongRatio: wrongRatio, attempts: attempts });
     });
     scored.sort(function (a, b) {
       return b.wrongRatio - a.wrongRatio || b.attempts - a.attempts;

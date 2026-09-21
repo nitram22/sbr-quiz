@@ -28,11 +28,19 @@
     }
   }
 
+  var MASTERY_STREAK = 3; // so oft in Folge "Lief gut", bis ein Thema als gemeistert gilt
+
   function recordAnswer(topicId, wentWell) {
     var stats = loadStats();
-    if (!stats[topicId]) stats[topicId] = { correct: 0, wrong: 0 };
-    if (wentWell) stats[topicId].correct++;
-    else stats[topicId].wrong++;
+    if (!stats[topicId]) stats[topicId] = { correct: 0, wrong: 0, streak: 0 };
+    var s = stats[topicId];
+    if (wentWell) {
+      s.correct++;
+      s.streak = (s.streak || 0) + 1;
+    } else {
+      s.wrong++;
+      s.streak = 0;
+    }
     saveStats(stats);
   }
 
@@ -43,11 +51,10 @@
       var s = stats[t.id];
       if (!s) return;
       var attempts = s.correct + s.wrong;
-      if (attempts === 0) return;
+      if (attempts === 0 || s.wrong === 0) return;
+      if ((s.streak || 0) >= MASTERY_STREAK) return; // 3x in Folge lief gut -> gemeistert
       var wrongRatio = s.wrong / attempts;
-      if (wrongRatio > 0) {
-        scored.push({ t: t, wrongRatio: wrongRatio, attempts: attempts });
-      }
+      scored.push({ t: t, wrongRatio: wrongRatio, attempts: attempts });
     });
     scored.sort(function (a, b) {
       return b.wrongRatio - a.wrongRatio || b.attempts - a.attempts;

@@ -28,11 +28,19 @@
     }
   }
 
+  var MASTERY_STREAK = 3; // so oft in Folge "Kann ich", bis eine Karte als gemeistert gilt
+
   function recordAnswer(cardId, knewIt) {
     var stats = loadStats();
-    if (!stats[cardId]) stats[cardId] = { correct: 0, wrong: 0 };
-    if (knewIt) stats[cardId].correct++;
-    else stats[cardId].wrong++;
+    if (!stats[cardId]) stats[cardId] = { correct: 0, wrong: 0, streak: 0 };
+    var s = stats[cardId];
+    if (knewIt) {
+      s.correct++;
+      s.streak = (s.streak || 0) + 1;
+    } else {
+      s.wrong++;
+      s.streak = 0;
+    }
     saveStats(stats);
   }
 
@@ -43,11 +51,10 @@
       var s = stats[c.id];
       if (!s) return;
       var attempts = s.correct + s.wrong;
-      if (attempts === 0) return;
+      if (attempts === 0 || s.wrong === 0) return;
+      if ((s.streak || 0) >= MASTERY_STREAK) return; // 3x in Folge "Kann ich" -> gemeistert
       var wrongRatio = s.wrong / attempts;
-      if (wrongRatio > 0) {
-        scored.push({ c: c, wrongRatio: wrongRatio, attempts: attempts });
-      }
+      scored.push({ c: c, wrongRatio: wrongRatio, attempts: attempts });
     });
     scored.sort(function (a, b) {
       return b.wrongRatio - a.wrongRatio || b.attempts - a.attempts;
