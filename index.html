@@ -14,8 +14,9 @@
   <header class="app-header">
     <h1>⚖️ SBR-Quiz</h1>
     <p class="subtitle">Prüfungsvorbereitung Schul- &amp; Beamtenrecht (BW)</p>
-    <nav class="tab-bar">
-      <button type="button" class="tab-btn active" data-mode="quiz">📝 Quiz</button>
+    <nav id="tab-bar" class="tab-bar hidden">
+      <button type="button" class="tab-btn" data-mode="home">🏠 Start</button>
+      <button type="button" class="tab-btn" data-mode="quiz">📝 Quiz</button>
       <button type="button" class="tab-btn" data-mode="flashcards">🗂️ Karteikarten</button>
       <button type="button" class="tab-btn" data-mode="overview">📖 Übersicht</button>
     </nav>
@@ -24,9 +25,32 @@
   <main>
 
     <!-- ================================================================ -->
+    <!-- MODE: START (Kachel-Auswahl)                                     -->
+    <!-- ================================================================ -->
+    <div id="mode-home" class="mode-section">
+      <div class="mode-tiles">
+        <button type="button" class="mode-tile" data-mode="quiz">
+          <span class="mode-tile-icon">📝</span>
+          <span class="mode-tile-title">Quiz</span>
+          <span class="mode-tile-desc">Multiple-Choice-Fragen mit Erklärung, Kapitel-Filter und Statistik</span>
+        </button>
+        <button type="button" class="mode-tile" data-mode="flashcards">
+          <span class="mode-tile-icon">🗂️</span>
+          <span class="mode-tile-title">Karteikarten</span>
+          <span class="mode-tile-desc">Begriffe und Fristen im Lernmodus wiederholen – umdrehen &amp; selbst einschätzen</span>
+        </button>
+        <button type="button" class="mode-tile" data-mode="overview">
+          <span class="mode-tile-icon">📖</span>
+          <span class="mode-tile-title">Übersicht</span>
+          <span class="mode-tile-desc">Inhalte strukturiert nachschlagen – Hierarchien, Zeitstrahlen, Tabellen</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================================================================ -->
     <!-- MODE: QUIZ                                                       -->
     <!-- ================================================================ -->
-    <div id="mode-quiz" class="mode-section">
+    <div id="mode-quiz" class="mode-section hidden">
 
       <!-- ============ START SCREEN ============ -->
       <section id="screen-start" class="screen">

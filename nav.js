@@ -29,15 +29,19 @@
   };
 
   // ---------------------------------------------------------------------
-  // Tab-Navigation zwischen den Modus-Bereichen
+  // Navigation zwischen Startseite (Kacheln) und den Modus-Bereichen
   // ---------------------------------------------------------------------
+  var ALL_MODES = ["home", "quiz", "flashcards", "overview"];
+
   function showMode(mode) {
-    ["quiz", "flashcards", "overview"].forEach(function (m) {
+    ALL_MODES.forEach(function (m) {
       var section = document.getElementById("mode-" + m);
       if (section) section.classList.toggle("hidden", m !== mode);
       var tab = document.querySelector('.tab-btn[data-mode="' + m + '"]');
       if (tab) tab.classList.toggle("active", m === mode);
     });
+    var tabBar = document.getElementById("tab-bar");
+    if (tabBar) tabBar.classList.toggle("hidden", mode === "home");
     window.scrollTo({ top: 0, behavior: "auto" });
   }
   window.showMode = showMode;
@@ -66,6 +70,14 @@
         showMode(tab.getAttribute("data-mode"));
       });
     });
+
+    var tiles = document.querySelectorAll(".mode-tile");
+    tiles.forEach(function (tile) {
+      tile.addEventListener("click", function () {
+        showMode(tile.getAttribute("data-mode"));
+      });
+    });
+
     wireOverviewIndex();
   }
 

@@ -407,6 +407,52 @@ body {
 .btn-full { display: block; width: 100%; }
 
 /* ============================================================ */
+/* Startseite: Kacheln                                            */
+/* ============================================================ */
+.mode-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.mode-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 28px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+  transition: border-color 0.15s ease, transform 0.05s ease;
+}
+
+.mode-tile:hover { border-color: var(--primary); }
+.mode-tile:active { transform: scale(0.98); }
+
+.mode-tile-icon { font-size: 2.4rem; line-height: 1; }
+
+.mode-tile-title { font-size: 1.15rem; font-weight: 700; }
+
+.mode-tile-desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .mode-tiles { grid-template-columns: 1fr; }
+  .mode-tile { padding: 20px 16px; }
+  .mode-tile-icon { font-size: 2rem; }
+}
+
+/* ============================================================ */
 /* Flashcards (Karteikarten)                                     */
 /* ============================================================ */
 .fc-card {
