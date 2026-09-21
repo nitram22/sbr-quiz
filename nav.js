@@ -42,6 +42,7 @@
     });
     var tabBar = document.getElementById("tab-bar");
     if (tabBar) tabBar.classList.toggle("hidden", mode === "home");
+    if (mode === "home" && typeof window.renderDashboard === "function") window.renderDashboard();
     window.scrollTo({ top: 0, behavior: "auto" });
   }
   window.showMode = showMode;

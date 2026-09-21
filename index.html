@@ -57,6 +57,18 @@
           <span class="mode-tile-desc">Inhalte strukturiert nachschlagen – Hierarchien, Zeitstrahlen, Tabellen</span>
         </button>
       </div>
+
+      <div class="card dashboard-card">
+        <h2>📊 Dein Fortschritt</h2>
+        <p id="dashboard-summary" class="hint"></p>
+        <div class="dash-legend">
+          <span><span class="dash-dot dash-dot-new"></span> noch nicht geübt</span>
+          <span><span class="dash-dot dash-dot-low"></span> &lt; 40 %</span>
+          <span><span class="dash-dot dash-dot-mid"></span> 40–75 %</span>
+          <span><span class="dash-dot dash-dot-high"></span> ≥ 75 %</span>
+        </div>
+        <div id="dashboard-chapters" class="dash-chapters"></div>
+      </div>
     </div>
 
     <!-- ================================================================ -->
@@ -950,5 +962,6 @@
 <script src="flashcards.js"></script>
 <script src="fallbeispiele.js"></script>
 <script src="oral.js"></script>
+<script src="dashboard.js"></script>
 </body>
 </html>

@@ -40,6 +40,12 @@ komplett im Browser.
   statt isolierter Frage/Antwort-Paare
 - Schnellzugriff-Index zum Direktsprung in ein Kapitel
 
+**📊 Fortschritts-Dashboard (Startseite)**
+- Ampel-Überblick pro Kapitel über alle vier Übungsmodi hinweg (Abdeckung × Trefferquote)
+- Zeigt auf einen Blick, wo noch Lücken sind, bevor man in einen Modus wechselt
+- Graue Badges markieren Kapitel, für die ein Modus noch keine Inhalte hat (z.B.
+  Fallbeispiele aktuell nur zu 1.12)
+
 **Allgemein**
 - Lokale Statistik je Modus (im Browser gespeichert, `localStorage`), getrennt für alle
   vier Übungsmodi: zeigt Schwachstellen an, „Schwache … üben" trainiert gezielt
