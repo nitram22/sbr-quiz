@@ -42,9 +42,13 @@ komplett im Browser.
 
 **📊 Fortschritts-Dashboard (Startseite)**
 - Ampel-Überblick pro Kapitel über alle vier Übungsmodi hinweg (Abdeckung × Trefferquote)
+- Gesamtfortschritt in % sowie ein thematisches Rang-System entlang der in der App
+  gelehrten Beamtenlaufbahn (📋 Bewerber/in → 📝 auf Widerruf → 🎓 auf Probe →
+  ✅ auf Lebenszeit → 📘 Studienrat → … → ⭐ Ministerialrat bei 100 %)
 - Zeigt auf einen Blick, wo noch Lücken sind, bevor man in einen Modus wechselt
 - Graue Badges markieren Kapitel, für die ein Modus noch keine Inhalte hat (z.B.
   Fallbeispiele aktuell nur zu 1.12)
+- Button zum Zurücksetzen der Statistik aller vier Modi auf einmal
 
 **Allgemein**
 - Lokale Statistik je Modus (im Browser gespeichert, `localStorage`), getrennt für alle

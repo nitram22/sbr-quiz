@@ -949,6 +949,57 @@ body {
   margin-top: 16px;
 }
 
+.dash-rank-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 14px;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, var(--accent-quiz-bg), var(--chip-bg));
+  border: 1px solid var(--chip-border);
+  border-radius: 12px;
+}
+
+.dash-rank-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.dash-rank-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dash-rank-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.dash-rank-track {
+  height: 6px;
+  background: var(--card-bg);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.dash-rank-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.dash-rank-next {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
 .dash-legend {
   display: flex;
   flex-wrap: wrap;
