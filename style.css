@@ -834,3 +834,69 @@ body {
   color: var(--text-muted);
   font-style: italic;
 }
+
+/* ============================================================ */
+/* Mündliche Prüfung                                              */
+/* ============================================================ */
+.oral-topic-card h2 {
+  font-size: 1.2rem;
+  margin: 4px 0 18px;
+  line-height: 1.4;
+}
+
+.oral-timer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  border-radius: 10px;
+}
+
+#oral-timer-display {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  min-width: 64px;
+}
+
+.oral-timer .btn { flex: 1; }
+
+.oral-reveal-block {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+
+.oral-points-list {
+  margin: 8px 0 16px;
+  padding-left: 20px;
+}
+.oral-points-list li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.oral-followup-item {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+}
+.oral-followup-item:last-child { margin-bottom: 0; }
+
+.oral-followup-q {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.oral-followup-a {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}

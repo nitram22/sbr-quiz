@@ -19,6 +19,7 @@
       <button type="button" class="tab-btn" data-mode="quiz">📝 Quiz</button>
       <button type="button" class="tab-btn" data-mode="flashcards">🗂️ Karteikarten</button>
       <button type="button" class="tab-btn" data-mode="cases">⚖️ Fallbeispiele</button>
+      <button type="button" class="tab-btn" data-mode="oral">🎤 Mündliche Prüfung</button>
       <button type="button" class="tab-btn" data-mode="overview">📖 Übersicht</button>
     </nav>
   </header>
@@ -44,6 +45,11 @@
           <span class="mode-tile-icon">⚖️</span>
           <span class="mode-tile-title">Fallbeispiele</span>
           <span class="mode-tile-desc">Echte Fälle in 3 Schritten lösen – Tatbestand, Subsumtion, Rechtsfolge</span>
+        </button>
+        <button type="button" class="mode-tile" data-mode="oral">
+          <span class="mode-tile-icon">🎤</span>
+          <span class="mode-tile-title">Mündliche Prüfung</span>
+          <span class="mode-tile-desc">Offene Einstiegsfragen frei beantworten – mit Zeitnahme, Stichpunkten und typischen Nachfragen</span>
         </button>
         <button type="button" class="mode-tile" data-mode="overview">
           <span class="mode-tile-icon">📖</span>
@@ -348,6 +354,117 @@
         <div class="result-actions">
           <button type="button" id="fall-btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
           <button type="button" id="fall-btn-retry-again" class="btn btn-secondary btn-large">Nur "Nochmal"-Fälle wiederholen</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- MODE: MÜNDLICHE PRÜFUNG                                          -->
+    <!-- ================================================================ -->
+    <div id="mode-oral" class="mode-section hidden">
+
+      <!-- ============ ORAL START SCREEN ============ -->
+      <section id="screen-oral-start" class="screen">
+
+        <div class="card">
+          <h2>Kapitel auswählen</h2>
+          <div class="chapter-toolbar">
+            <button type="button" id="oral-btn-select-all" class="btn btn-small">Alle auswählen</button>
+            <button type="button" id="oral-btn-select-none" class="btn btn-small">Alle abwählen</button>
+          </div>
+
+          <div id="oral-chapter-groups"></div>
+        </div>
+
+        <div class="card">
+          <h2>Anzahl Themen</h2>
+          <div id="oral-count-options" class="pill-group"></div>
+        </div>
+
+        <div class="card summary-card">
+          <p><strong id="oral-available-count">0</strong> Themen passend zur Auswahl verfügbar.</p>
+          <button type="button" id="oral-btn-start" class="btn btn-primary btn-large">Mündliche Prüfung starten</button>
+          <button type="button" id="oral-btn-weak" class="btn btn-secondary btn-large" disabled>
+            Schwache Themen üben (aus Statistik)
+          </button>
+          <p id="oral-weak-hint" class="hint">Bewerte erst ein paar Themen, damit diese Funktion Daten hat.</p>
+        </div>
+
+        <div class="card stats-card">
+          <h2>Deine Statistik</h2>
+          <div id="oral-stats-summary"></div>
+          <button type="button" id="oral-btn-reset-stats" class="btn btn-danger btn-small">Statistik zurücksetzen</button>
+        </div>
+
+      </section>
+
+      <!-- ============ ORAL TOPIC SCREEN ============ -->
+      <section id="screen-oral-topic" class="screen hidden">
+        <div class="quiz-progress">
+          <div class="progress-track">
+            <div id="oral-progress-bar" class="progress-bar"></div>
+          </div>
+          <div class="progress-text">
+            <span id="oral-progress-label">Thema 1 von 10</span>
+            <span id="oral-known-label">Lief gut: 0</span>
+          </div>
+        </div>
+
+        <div class="card oral-topic-card">
+          <p id="oral-chapter-tag" class="chapter-tag"></p>
+          <p class="fall-face-label">Einstiegsfrage</p>
+          <h2 id="oral-frage-text"></h2>
+
+          <div class="oral-timer">
+            <span id="oral-timer-display">00:00</span>
+            <button type="button" id="oral-btn-timer" class="btn btn-secondary">▶️ Antwortzeit starten</button>
+          </div>
+
+          <button type="button" id="oral-btn-reveal-points" class="btn btn-primary btn-large">Stichpunkte anzeigen</button>
+
+          <div id="oral-points-wrap" class="oral-reveal-block hidden">
+            <p class="fall-face-label">Stichpunkte zum Abgleich</p>
+            <ul id="oral-points-list" class="oral-points-list"></ul>
+
+            <button type="button" id="oral-btn-reveal-followup" class="btn btn-secondary btn-large">Typische Nachfragen anzeigen</button>
+
+            <div id="oral-followup-wrap" class="oral-reveal-block hidden">
+              <p class="fall-face-label">Typische Nachfragen</p>
+              <div id="oral-followup-list"></div>
+            </div>
+
+            <div id="oral-rate-buttons" class="fc-rate-buttons">
+              <button type="button" id="oral-btn-again" class="btn btn-rate btn-rate-again">🔁 Nochmal üben</button>
+              <button type="button" id="oral-btn-known" class="btn btn-rate btn-rate-known">✅ Lief gut</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button type="button" id="oral-btn-quit" class="btn btn-secondary btn-full">Abbrechen</button>
+        </div>
+      </section>
+
+      <!-- ============ ORAL RESULT SCREEN ============ -->
+      <section id="screen-oral-result" class="screen hidden">
+        <div class="card result-card">
+          <h2>Ergebnis</h2>
+          <p id="oral-result-score" class="result-score"></p>
+          <div class="progress-track">
+            <div id="oral-result-bar" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Themen zum Wiederholen ("Nochmal")</h2>
+          <div id="oral-again-list" class="wrong-list"></div>
+          <p id="oral-no-again" class="hint hidden">Alles lief gut – stark! 🎉</p>
+        </div>
+
+        <div class="result-actions">
+          <button type="button" id="oral-btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
+          <button type="button" id="oral-btn-retry-again" class="btn btn-secondary btn-large">Nur "Nochmal"-Themen wiederholen</button>
         </div>
       </section>
 
@@ -827,9 +944,11 @@
 <script src="questions.js"></script>
 <script src="flashcards-data.js"></script>
 <script src="fallbeispiele-data.js"></script>
+<script src="oral-data.js"></script>
 <script src="nav.js"></script>
 <script src="app.js"></script>
 <script src="flashcards.js"></script>
 <script src="fallbeispiele.js"></script>
+<script src="oral.js"></script>
 </body>
 </html>

@@ -31,7 +31,7 @@
   // ---------------------------------------------------------------------
   // Navigation zwischen Startseite (Kacheln) und den Modus-Bereichen
   // ---------------------------------------------------------------------
-  var ALL_MODES = ["home", "quiz", "flashcards", "cases", "overview"];
+  var ALL_MODES = ["home", "quiz", "flashcards", "cases", "oral", "overview"];
 
   function showMode(mode) {
     ALL_MODES.forEach(function (m) {
