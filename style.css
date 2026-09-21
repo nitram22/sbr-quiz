@@ -728,6 +728,16 @@ body {
   font-weight: 600;
 }
 
+.ov-table-scroll {
+  overflow-x: auto;
+  margin: 8px 0 14px;
+  -webkit-overflow-scrolling: touch;
+}
+.ov-table-scroll .ov-table {
+  margin: 0;
+  min-width: 560px;
+}
+
 .timeline {
   display: flex;
   flex-wrap: wrap;
@@ -912,6 +922,18 @@ body {
   font-size: 0.92rem;
   line-height: 1.4;
 }
+
+.oral-info-card {
+  background: var(--chip-bg);
+  border-color: var(--chip-border);
+}
+
+.oral-info-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.92rem;
+}
+.oral-info-list li { margin-bottom: 6px; line-height: 1.4; }
 
 /* ============================================================ */
 /* Fortschritts-Dashboard (Startseite)                            */

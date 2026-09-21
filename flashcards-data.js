@@ -156,6 +156,18 @@ window.FLASHCARDS = [
   { id: "fc-sr-1.8-08", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
     front: "Wofür steht SMV?",
     back: "Schüler mit Verantwortung." },
+  { id: "fc-sr-1.8-09", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    front: "Wie wird eine Schulleitungsstelle besetzt?",
+    back: "Bestellung durch das Kultusministerium nach striktem Eignungsprüfungsverfahren (Chancengleichheit aller Bewerber)." },
+  { id: "fc-sr-1.8-10", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    front: "Nenne 2 nicht delegierbare Aufgaben der Schulleitung.",
+    back: "U.a. Vorsitz GLK/Schulkonferenz, Prüfungsvorsitz, dienstliche Beurteilungen, Entscheidungen nach § 90 SchG." },
+  { id: "fc-sr-1.8-11", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    front: "Übliche Einladungsfrist zu Konferenzen?",
+    back: "I.d.R. mindestens 6 Tage." },
+  { id: "fc-sr-1.8-12", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    front: "SMV-Gremium unterhalb des Schülerrats?",
+    back: "Die Klassenschülerversammlung (§ 63 SchG)." },
 
   // ===================== 1.9 Rechtsstellung SuS, Schulpflicht =====================
   { id: "fc-sr-1.9-01", part: "Schulrecht", chapter: "1.9 Rechtsstellung SuS, Schulpflicht",
@@ -246,6 +258,15 @@ window.FLASHCARDS = [
   { id: "fc-sr-1.11-15", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
     front: "Darf die neue Schule nach Schulausschluss Bedingungen stellen?",
     back: "Ja: Vereinbarung über Verhaltensänderung + Probezeit bis 6 Monate (§ 90 Abs. 4 S. 2)." },
+  { id: "fc-sr-1.11-16", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    front: "Darf eine Lehrkraft bei Verdacht (Diebstahl, Drogen...) Schultasche/Kleidung/Schließfach durchsuchen?",
+    back: "Ja, als präventive Maßnahme nach § 23 SchG – am besten mit Zeugen/weiterer Lehrkraft." },
+  { id: "fc-sr-1.11-17", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    front: "2 Beispiele für präventive Maßnahmen (§ 23)?",
+    back: "Z.B. Verbot eines provokanten T-Shirts, Versagen der Teilnahme an einer AUV." },
+  { id: "fc-sr-1.11-18", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    front: "3 Beispiele für pädagogische Erziehungsmaßnahmen?",
+    back: "Z.B. Tadel, Änderung der Sitzordnung, Tagebucheintrag (auch: Gespräch, Wiedergutmachung)." },
 
   // ===================== 1.12 Aufsichtspflicht =====================
   { id: "fc-sr-1.12-01", part: "Schulrecht", chapter: "1.12 Aufsichtspflicht",
@@ -436,6 +457,9 @@ window.FLASHCARDS = [
   { id: "fc-br-2.4-05", part: "Beamtenrecht", chapter: "2.4 Laufbahnrecht",
     front: "Zeitpunkte der dienstlichen Beurteilung in der Probezeit?",
     back: "9 Monate nach Einstellung und 3 Monate vor Ende der Probezeit." },
+  { id: "fc-br-2.4-06", part: "Beamtenrecht", chapter: "2.4 Laufbahnrecht",
+    front: "Wird eine Führungsposition (z.B. Schulleitung) sofort auf Lebenszeit übertragen?",
+    back: "Nein, zunächst nur auf Probe (2 Jahre)." },
 
   // ===================== 2.5 Einstellung und Entlassung =====================
   { id: "fc-br-2.5-01", part: "Beamtenrecht", chapter: "2.5 Einstellung und Entlassung",

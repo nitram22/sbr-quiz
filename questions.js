@@ -351,6 +351,30 @@ window.QUESTIONS = [
     options: ["Alle unterrichtenden Lehrkräfte; Beschlussfähigkeit und Protokollführung sind zwingend", "Nur die Klassenlehrkraft entscheidet allein", "Nur die Fachlehrkräfte der Kernfächer", "Die Entscheidung trifft allein die Schulleitung"],
     explanation: "In der Zeugniskonferenz werden Noten, Versetzungen und Prüfungszulassungen beschlossen."
   },
+  {
+    id: "sr-1.8-12", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    question: "Wie erfolgt die Besetzung einer Schulleitungsstelle?",
+    options: ["Durch Bestellung des Kultusministeriums nach einem strikten, umfangreichen Eignungsprüfungsverfahren", "Durch Wahl der Gesamtlehrerkonferenz", "Durch Ernennung allein durch die Schulkonferenz", "Automatisch durch Dienstalter des dienstältesten Lehrers"],
+    explanation: "Das Bewerbungsverfahren soll die Chancengleichheit aller Bewerber*innen sicherstellen."
+  },
+  {
+    id: "sr-1.8-13", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    question: "Kann der/die Schulleiter*in alle seine/ihre Aufgaben an andere Lehrkräfte delegieren?",
+    options: ["Nein, einige Aufgaben sind nicht delegierbar, u.a. der Vorsitz in GLK und Schulkonferenz, der Prüfungsvorsitz, dienstliche Beurteilungen und Entscheidungen nach § 90 SchG", "Ja, sämtliche Aufgaben sind delegierbar", "Nein, der Schulleiter darf überhaupt keine Aufgaben delegieren", "Nein, nur die Aufsichtspläne sind nicht delegierbar"],
+    explanation: "Diese Kernaufgaben bleiben zwingend bei der Schulleitung selbst."
+  },
+  {
+    id: "sr-1.8-14", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    question: "Innerhalb welcher Frist muss zu einer Konferenz in der Regel eingeladen werden?",
+    options: ["I.d.R. mindestens 6 Tage vorher", "I.d.R. mindestens 1 Tag vorher", "I.d.R. mindestens 4 Wochen vorher", "Es gibt keine übliche Mindestfrist"],
+    explanation: "Zusammen mit der Einladung wird auch die Tagesordnung bekannt gegeben."
+  },
+  {
+    id: "sr-1.8-15", part: "Schulrecht", chapter: "1.8 Schulverfassung, Konferenzen",
+    question: "Welches SMV-Gremium steht unterhalb des Schülerrats (§ 66 SchG)?",
+    options: ["Die Klassenschülerversammlung (§ 63 SchG)", "Die Gesamtlehrerkonferenz", "Der Elternbeirat", "Die Fachkonferenz"],
+    explanation: "Die Klassenschülerversammlung ist die Basisebene der Schülermitverantwortung auf Klassenebene."
+  },
 
   // ===================== 1.9 Rechtsstellung von Schüler*innen, Schulpflicht =====================
   {
@@ -560,6 +584,24 @@ window.QUESTIONS = [
     question: "Darf die aufnehmende Schule nach einem Schulausschluss Bedingungen an die Aufnahme knüpfen?",
     options: ["Ja, sie kann die Aufnahme von einer Vereinbarung über eine Verhaltensänderung abhängig machen und eine Probezeit bis zu 6 Monaten festlegen", "Nein, die Aufnahme muss immer bedingungslos erfolgen", "Ja, aber nur eine Probezeit von maximal 4 Wochen ist zulässig", "Nein, ein Schüler nach Schulausschluss darf an keiner anderen Schule mehr aufgenommen werden"],
     explanation: "Rechtsgrundlage: § 90 Abs. 4 Satz 2 SchG."
+  },
+  {
+    id: "sr-1.11-19", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Darf eine Lehrkraft bei begründetem Verdacht (z.B. auf Diebstahl, Drogen, Waffen) die Schultasche, Kleidung oder das Schließfach eines Schülers durchsuchen?",
+    options: ["Ja, das kann als präventive Maßnahme nach § 23 SchG notwendig sein – am besten unter Zeugen bzw. mit einer weiteren Lehrkraft", "Nein, eine Durchsuchung ist unter keinen Umständen zulässig", "Ja, aber nur mit vorheriger schriftlicher Genehmigung des Regierungspräsidiums", "Ja, aber nur wenn der Schüler volljährig ist"],
+    explanation: "Präventivmaßnahmen sollen eine künftige Gefahr abwehren, keine Sanktion für ein Fehlverhalten sein."
+  },
+  {
+    id: "sr-1.11-20", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Welche der folgenden Maßnahmen ist ein Beispiel für eine präventive Maßnahme nach § 23 SchG?",
+    options: ["Das Verbot eines T-Shirts mit provokantem Aufdruck oder das Versagen der Teilnahme an einer AUV", "Ein Verweis vom Unterricht wegen wiederholter Störung", "Ein Ausschluss vom Unterricht bis zu 4 Wochen", "Ein endgültiger Schulausschluss"],
+    explanation: "Präventive Maßnahmen wehren eine künftige Gefahr ab, statt ein bereits begangenes Fehlverhalten zu sanktionieren."
+  },
+  {
+    id: "sr-1.11-21", part: "Schulrecht", chapter: "1.11 Erziehungs- und Ordnungsmaßnahmen",
+    question: "Welche Maßnahmen zählen zu den pädagogischen Erziehungsmaßnahmen (§ 23 SchG)?",
+    options: ["U.a. Tadel, Änderung der Sitzordnung, Tagebucheintrag, Wiedergutmachung eines Schadens", "Ausschließlich Nachsitzen und Überweisung in die Parallelklasse", "Ausschließlich der endgültige Schulausschluss", "Ausschließlich die Androhung des Unterrichtsausschlusses"],
+    explanation: "Pädagogische Erziehungsmaßnahmen sind weniger intensive Eingriffe als die Erziehungs- und Ordnungsmaßnahmen nach § 90 SchG und kein Verwaltungsakt."
   },
 
   // ===================== 1.12 Aufsichtspflicht =====================
@@ -1008,6 +1050,12 @@ window.QUESTIONS = [
     question: "Wann muss laut Zusammenfassung eine dienstliche Beurteilung während der Probezeit erstellt werden?",
     options: ["9 Monate nach Einstellung und 3 Monate vor Ende der Probezeit", "Nur einmalig am Ende der Probezeit", "Jeden Monat", "Nur auf Antrag des Beamten"],
     explanation: "Die Beurteilung wird durch den/die Schulleiter*in erstellt."
+  },
+  {
+    id: "br-2.4-07", part: "Beamtenrecht", chapter: "2.4 Laufbahnrecht",
+    question: "Wird auch eine Führungsposition wie das Amt des/der Schulleiter*in sofort auf Lebenszeit übertragen?",
+    options: ["Nein, auch Führungspositionen werden zunächst nur auf Probe übertragen (2 Jahre)", "Ja, Führungspositionen werden immer sofort auf Lebenszeit übertragen", "Nein, Führungspositionen werden immer nur auf Widerruf vergeben", "Ja, für Führungspositionen entfällt jede Probezeit"],
+    explanation: "Erst nach erfolgreicher Bewährung in dieser Führungs-Probezeit erfolgt die Übertragung auf Dauer."
   },
 
   // ===================== 2.5 Einstellung und Entlassung =====================
