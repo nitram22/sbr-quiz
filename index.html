@@ -18,6 +18,7 @@
       <button type="button" class="tab-btn" data-mode="home">🏠 Start</button>
       <button type="button" class="tab-btn" data-mode="quiz">📝 Quiz</button>
       <button type="button" class="tab-btn" data-mode="flashcards">🗂️ Karteikarten</button>
+      <button type="button" class="tab-btn" data-mode="cases">⚖️ Fallbeispiele</button>
       <button type="button" class="tab-btn" data-mode="overview">📖 Übersicht</button>
     </nav>
   </header>
@@ -38,6 +39,11 @@
           <span class="mode-tile-icon">🗂️</span>
           <span class="mode-tile-title">Karteikarten</span>
           <span class="mode-tile-desc">Begriffe und Fristen im Lernmodus wiederholen – umdrehen &amp; selbst einschätzen</span>
+        </button>
+        <button type="button" class="mode-tile" data-mode="cases">
+          <span class="mode-tile-icon">⚖️</span>
+          <span class="mode-tile-title">Fallbeispiele</span>
+          <span class="mode-tile-desc">Echte Fälle in 3 Schritten lösen – Tatbestand, Subsumtion, Rechtsfolge</span>
         </button>
         <button type="button" class="mode-tile" data-mode="overview">
           <span class="mode-tile-icon">📖</span>
@@ -232,6 +238,116 @@
         <div class="result-actions">
           <button type="button" id="fc-btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
           <button type="button" id="fc-btn-retry-again" class="btn btn-secondary btn-large">Nur "Nochmal"-Karten wiederholen</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- MODE: FALLBEISPIELE                                              -->
+    <!-- ================================================================ -->
+    <div id="mode-cases" class="mode-section hidden">
+
+      <!-- ============ CASES START SCREEN ============ -->
+      <section id="screen-fall-start" class="screen">
+
+        <div class="card">
+          <h2>Kapitel auswählen</h2>
+          <div class="chapter-toolbar">
+            <button type="button" id="fall-btn-select-all" class="btn btn-small">Alle auswählen</button>
+            <button type="button" id="fall-btn-select-none" class="btn btn-small">Alle abwählen</button>
+          </div>
+
+          <div id="fall-chapter-groups"></div>
+        </div>
+
+        <div class="card">
+          <h2>Anzahl Fälle</h2>
+          <div id="fall-count-options" class="pill-group"></div>
+        </div>
+
+        <div class="card summary-card">
+          <p><strong id="fall-available-count">0</strong> Fälle passend zur Auswahl verfügbar.</p>
+          <button type="button" id="fall-btn-start" class="btn btn-primary btn-large">Fallbeispiele starten</button>
+          <button type="button" id="fall-btn-weak" class="btn btn-secondary btn-large" disabled>
+            Schwache Fälle üben (aus Statistik)
+          </button>
+          <p id="fall-weak-hint" class="hint">Bewerte erst ein paar Fälle, damit diese Funktion Daten hat.</p>
+        </div>
+
+        <div class="card stats-card">
+          <h2>Deine Statistik</h2>
+          <div id="fall-stats-summary"></div>
+          <button type="button" id="fall-btn-reset-stats" class="btn btn-danger btn-small">Statistik zurücksetzen</button>
+        </div>
+
+      </section>
+
+      <!-- ============ CASE SCREEN ============ -->
+      <section id="screen-fall-case" class="screen hidden">
+        <div class="quiz-progress">
+          <div class="progress-track">
+            <div id="fall-progress-bar" class="progress-bar"></div>
+          </div>
+          <div class="progress-text">
+            <span id="fall-progress-label">Fall 1 von 10</span>
+            <span id="fall-known-label">Verstanden: 0</span>
+          </div>
+        </div>
+
+        <div class="card fall-case-card">
+          <p id="fall-chapter-tag" class="chapter-tag"></p>
+          <h2 id="fall-title-text"></h2>
+          <p class="fall-face-label">Sachverhalt</p>
+          <p id="fall-sachverhalt-text" class="fall-sachverhalt"></p>
+
+          <div class="fall-step">
+            <p class="fall-step-progress" id="fall-step-progress">Schritt 1 von 3</p>
+            <p class="fall-step-label" id="fall-step-label">Tatbestand</p>
+            <p id="fall-step-frage" class="fall-step-frage"></p>
+
+            <textarea id="fall-notes" class="fall-notes" rows="3" placeholder="Deine Einschätzung (optional, wird nicht gespeichert) …"></textarea>
+
+            <div id="fall-step-loesung-wrap" class="fall-loesung hidden">
+              <p class="fall-face-label">Lösung</p>
+              <p id="fall-step-loesung-text"></p>
+              <p id="fall-quelle-text" class="fall-quelle hidden"></p>
+            </div>
+
+            <button type="button" id="fall-btn-reveal" class="btn btn-primary btn-large">Lösung anzeigen</button>
+            <button type="button" id="fall-btn-continue" class="btn btn-primary btn-large hidden">Weiter</button>
+
+            <div id="fall-rate-buttons" class="fc-rate-buttons hidden">
+              <button type="button" id="fall-btn-again" class="btn btn-rate btn-rate-again">🔁 Nochmal üben</button>
+              <button type="button" id="fall-btn-known" class="btn btn-rate btn-rate-known">✅ Verstanden</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button type="button" id="fall-btn-quit" class="btn btn-secondary btn-full">Abbrechen</button>
+        </div>
+      </section>
+
+      <!-- ============ CASES RESULT SCREEN ============ -->
+      <section id="screen-fall-result" class="screen hidden">
+        <div class="card result-card">
+          <h2>Ergebnis</h2>
+          <p id="fall-result-score" class="result-score"></p>
+          <div class="progress-track">
+            <div id="fall-result-bar" class="progress-bar"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Fälle zum Wiederholen ("Nochmal")</h2>
+          <div id="fall-again-list" class="wrong-list"></div>
+          <p id="fall-no-again" class="hint hidden">Alles verstanden – stark! 🎉</p>
+        </div>
+
+        <div class="result-actions">
+          <button type="button" id="fall-btn-restart" class="btn btn-primary btn-large">Zurück zur Auswahl</button>
+          <button type="button" id="fall-btn-retry-again" class="btn btn-secondary btn-large">Nur "Nochmal"-Fälle wiederholen</button>
         </div>
       </section>
 
@@ -710,8 +826,10 @@
 
 <script src="questions.js"></script>
 <script src="flashcards-data.js"></script>
+<script src="fallbeispiele-data.js"></script>
 <script src="nav.js"></script>
 <script src="app.js"></script>
 <script src="flashcards.js"></script>
+<script src="fallbeispiele.js"></script>
 </body>
 </html>

@@ -746,3 +746,91 @@ body {
   .ov-table { font-size: 0.82rem; }
   .timeline { flex-direction: column; }
 }
+
+/* ============================================================ */
+/* Fallbeispiele (3-Schritte-Falllösung)                          */
+/* ============================================================ */
+.fall-case-card { text-align: left; }
+
+.fall-case-card h2 {
+  font-size: 1.2rem;
+  margin: 0 0 12px;
+}
+
+.fall-face-label {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0 0 6px;
+}
+
+.fall-sachverhalt {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.fall-step {
+  border-top: 1px dashed var(--border);
+  padding-top: 14px;
+}
+
+.fall-step-progress {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0 0 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.fall-step-label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 8px;
+}
+
+.fall-step-frage {
+  font-weight: 600;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.fall-notes {
+  width: 100%;
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+.fall-loesung {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--correct-bg);
+  border: 1px solid var(--correct);
+}
+
+.fall-loesung p#fall-step-loesung-text {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.fall-quelle {
+  margin: 8px 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+}

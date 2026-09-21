@@ -1,8 +1,8 @@
 # SBR-Quiz – Schul- & Beamtenrecht (Baden-Württemberg)
 
 Eine kleine Lern-App zur Prüfungsvorbereitung in Schul- und Beamtenrecht, erstellt aus
-der Zusammenfassung „Leitfaden Repetitorium 2025". Drei Modi: Quiz, Karteikarten und
-eine strukturierte Übersicht.
+der Zusammenfassung „Leitfaden Repetitorium 2025". Vier Modi: Quiz, Karteikarten,
+Fallbeispiele und eine strukturierte Übersicht.
 
 Reines statisches HTML/CSS/JavaScript – kein Build-Step, keine Abhängigkeiten, läuft
 komplett im Browser.
@@ -19,6 +19,13 @@ komplett im Browser.
 - Umdrehen + Selbsteinschätzung „Kann ich" / „Nochmal"
 - „Nochmal"-Karten werden am Ende der Runde zur Wiederholung angeboten
 
+**⚖️ Fallbeispiele**
+- 18 reale Fälle zur Aufsichtspflicht mit Gerichtsentscheidungen
+- Dreistufige Falllösung wie im Prüfungsschema (Kapitel 1.1): Tatbestand → Subsumtion →
+  Rechtsfolge, jeder Schritt einzeln aufdeckbar, mit optionalem Notizfeld für die eigene
+  Einschätzung
+- Selbsteinschätzung „Verstanden" / „Nochmal üben" pro Fall, eigene Statistik
+
 **📖 Übersicht**
 - Ausklappbare Kapitel-Akkordeons mit den inhaltlichen Zusammenhängen (Normenpyramide,
   Schulaufsichts-Hierarchie, Konferenzen-Struktur, § 90-Maßnahmen, Beamtenlaufbahn u.a.)
@@ -26,8 +33,9 @@ komplett im Browser.
 - Schnellzugriff-Index zum Direktsprung in ein Kapitel
 
 **Allgemein**
-- Lokale Statistik je Modus (im Browser gespeichert, `localStorage`), getrennt für Quiz
-  und Karteikarten: zeigt Schwachstellen an, „Schwache Fragen/Karten üben" trainiert gezielt
+- Lokale Statistik je Modus (im Browser gespeichert, `localStorage`), getrennt für Quiz,
+  Karteikarten und Fallbeispiele: zeigt Schwachstellen an, „Schwache Fragen/Karten/Fälle
+  üben" trainiert gezielt
 
 ## Lokal öffnen
 
